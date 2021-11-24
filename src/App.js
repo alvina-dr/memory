@@ -10,6 +10,20 @@ const cardImages = [
     { "src": "/img/3.png", matched: false  },
     { "src": "/img/4.png", matched: false  },
     { "src": "/img/5.png", matched: false  },
+    { "src": "/img/1.png", matched: false },
+    { "src": "/img/2.png", matched: false  },
+    { "src": "/img/3.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/1.png", matched: false },
+    { "src": "/img/2.png", matched: false  },
+    { "src": "/img/3.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
     { "src": "/img/6.png", matched: false  }
 ]
 
