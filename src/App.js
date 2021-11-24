@@ -41,7 +41,7 @@ function App() {
     .map((card) => ({ ...card, id: Math.random() }))
 
 
-    //shuffle cards
+    //MÉLANGE LES CARTES
     const shuffleCards = () => {
 
         setChoiceOne(null)
@@ -51,22 +51,29 @@ function App() {
         setScore(0)
     }
 
-    //handle a choice
+    //CHOIX DES CARTES
     const handleChoice = (card) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
 
+    //LANCE LE TIMER QUAND ON LANCE LE JEU
     const startGame = () =>  {
         setTimeLeft(60);
         setGameState(true);
     }
 
+    //PAUSE OU DÉPAUSE LE JEU
+    const pauseGame = () =>  {
+        setGameState(!setGameState);
+    }
+
+    //REMET LE TIMER À ZÉRO
     function resetTimer() {
         setTimeLeft(60)
         setGameState(false)
     }
     
-    //compare 2 selected cards
+    //COMPARE LES DEUX CARTES SÉLECTIONNÉS POUR VOIR SI ELLES MATCHENT
     useEffect(() => {
         if (choiceOne && choiceTwo) {
             setDisabled(true)
@@ -88,8 +95,8 @@ function App() {
         }
     }, [choiceOne, choiceTwo])
 
-    console.log(cards)
 
+    //REMET LA CARTE À L'ENVERS
     const resetTurn = () => {
         setChoiceOne(null)
         setChoiceTwo(null)
@@ -97,6 +104,8 @@ function App() {
         setDisabled(false)
     }
 
+
+    //DÉCOMPTE EN SECONDES
     React.useEffect(() => {
         console.log(gameState);
         if (gameState && timeLeft > 0) {
@@ -108,23 +117,23 @@ function App() {
             //END OF GAME
         }
     }, [timeLeft]);
-    
-    console.log(cards, turns)
-
-    //start new game automatically
-    /*useEffect(() => {
-        shuffleCards()
-    }, [])*/
 
     return (
         <div className="App">
             <h1>Pokemon Memory</h1>
             <div class="div-row">
-                <p class="info">Time : <b>{timeLeft}</b></p>
-                <p class="info">Turns : <b>{turns}</b></p>
-                <p class="info">Score : <b>{score}</b></p>
+                <div class="div-row">
+                    <p class="info">Time : <b>{timeLeft}</b></p>
+                    <p class="info">Turns: <b>{turns}</b></p>
+                    <p class="info">Score : <b>{score}</b></p>
+                </div>
+                <div class="div-row btns">
+                    <button onClick={pauseGame} class="btn">Home</button>
+                    <button onClick={pauseGame} class="btn">||</button>
+                </div>
             </div>
-            <button onClick={() => {shuffleCards(); startGame()}}>Start New Game</button>
+            <button onClick={() => {shuffleCards(); startGame()}}>Play</button>
+
             <div className="card-grid">
                 {cards.map(card => (
                 <SingleCard
