@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 import * as React from 'react';
 
 
 const cardImages = [
-    { "src": "/img/cover1.png" },
-    { "src": "/img/test1.png" },
-    { "src": "/img/test2.png" },
-    { "src": "/img/test3.png" },
-    { "src": "/img/test4.png" },
-    { "src": "/img/test5.png" },
+    { "src": "/img/test.png", matched: false },
+    { "src": "/img/test1.png", matched: false  },
+    { "src": "/img/test2.png", matched: false  },
+    { "src": "/img/test3.png", matched: false  },
+    { "src": "/img/test4.png", matched: false  },
+    { "src": "/img/test5.png", matched: false  }
 ]
 
 function App() {
@@ -35,6 +35,36 @@ function App() {
     const handleChoice = (card) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
+
+    //compare 2 selected cards
+    useEffect(() => {
+        if (choiceOne && choiceTwo) {
+
+            if (choiceOne.src === choiceTwo.src) {
+                setCards(prevCards => {
+                    return prevCards.map(card => {
+                        if (card.src === choiceOne.src) {
+                            return {...card, matched: true}
+                        } else {
+                            return card
+                        }
+                    })
+                })
+                resetTurn()
+            } else {
+                setTimeout(() => resetTurn(), 1000)
+            }
+        }
+    }, [choiceOne, choiceTwo])
+
+    console.log(cards)
+
+    const resetTurn = () => {
+        setChoiceOne(null)
+        setChoiceTwo(null)
+        setTurns(prevTurns => prevTurns + 1)
+    }
+
     React.useEffect(() => {
         timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     }, [timeLeft]);
@@ -54,6 +84,7 @@ function App() {
                     key={card.id}
                     card={card}
                     handleChoice={handleChoice}
+                    flipped={card === choiceOne || card === choiceTwo || card.matched}
                     />
                 ))}
             </div>
