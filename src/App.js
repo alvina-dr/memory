@@ -5,12 +5,12 @@ import * as React from 'react';
 
 
 const cardImages = [
-    { "src": "/img/test.png", matched: false },
-    { "src": "/img/test1.png", matched: false  },
-    { "src": "/img/test2.png", matched: false  },
-    { "src": "/img/test3.png", matched: false  },
-    { "src": "/img/test4.png", matched: false  },
-    { "src": "/img/test5.png", matched: false  }
+    { "src": "/img/1.png", matched: false },
+    { "src": "/img/2.png", matched: false  },
+    { "src": "/img/3.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/6.png", matched: false  }
 ]
 
 function App() {
@@ -82,7 +82,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Pokemon memory</h1>
+            <h1>Jaune Prod - Memory</h1>
             <button onClick={shuffleCards}>Start New Game</button>
             <div>
                 <p>Time : <b>{timeLeft}</b></p>
