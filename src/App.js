@@ -39,27 +39,24 @@ function App() {
     const shuffledCards = [...cardImages, ...cardImages]
     .sort(() => Math.random() - 0.5)
     .map((card) => ({ ...card, id: Math.random() }))
+    const [showStartButton, setShowStartButton] = React.useState(true)
 
 
-    //MÉLANGE LES CARTES
+
+    //LANCE LE JEU + REMET TIMER À ZÉRO + MÉLANGE LES CARTES
     const shuffleCards = () => {
-
-        setChoiceOne(null)
-        setChoiceTwo(null)
+        setChoiceOne(null) //met la première sélection de carte à zéro
+        setChoiceTwo(null) //met la deuxième sélection de carte à zéro
         setCards(shuffledCards)
-        setTurns(0)
-        setScore(0)
+        setTurns(0) //remet le nombre de paire retournées à zéro
+        setScore(0) //remet le nombre de paires trouvé à zéro
+        setTimeLeft(60); //indique le temps d'une partie
+        setGameState(true); //indique que le jeu a commencé et que le timer peut se déclencher
     }
 
     //CHOIX DES CARTES
     const handleChoice = (card) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
-    }
-
-    //LANCE LE TIMER QUAND ON LANCE LE JEU
-    const startGame = () =>  {
-        setTimeLeft(60);
-        setGameState(true);
     }
 
     //PAUSE OU DÉPAUSE LE JEU
@@ -96,7 +93,7 @@ function App() {
     }, [choiceOne, choiceTwo])
 
 
-    //REMET LA CARTE À L'ENVERS
+    //REMET LE TOUR À ZÉRO ET CACHE LES DEUX CARTES SI ELLES SONT MAUVAISES + PERMET DE REJOUER
     const resetTurn = () => {
         setChoiceOne(null)
         setChoiceTwo(null)
@@ -112,9 +109,13 @@ function App() {
             setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
         } else if (gameState && timeLeft === 0) {
             setTimeLeft(0)
-            alert("LOSE")
             clearInterval(timeLeft);
-            //END OF GAME
+            setDisabled(true);
+            setCards(prevCards => {
+                return prevCards.map(card => {
+                    return {...card, matched: true}       
+                })
+            })
         }
     }, [timeLeft]);
 
@@ -132,7 +133,7 @@ function App() {
                     <button onClick={pauseGame} class="btn">||</button>
                 </div>
             </div>
-            <button onClick={() => {shuffleCards(); startGame()}}>Play</button>
+            <button onClick={ () => {shuffleCards(); setShowStartButton(false)}} className={showStartButton ? "" : "started"}>Play</button>
 
             <div className="card-grid">
                 {cards.map(card => (
@@ -140,7 +141,8 @@ function App() {
                     key={card.id}
                     card={card}
                     handleChoice={handleChoice}
-                    flipped={card === choiceOne || card === choiceTwo || card.matched}
+                    flipped={card === choiceOne || card === choiceTwo || card.matched} 
+                    //si une carte est soit le choix 1, soit le choix 2, soit déjà appairés, elle reste retournée
                     disabled={disabled}
                     />
                 ))}
