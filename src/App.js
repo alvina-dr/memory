@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 import * as React from 'react';
@@ -18,8 +18,8 @@ function App() {
     const [turns, setTurns] = useState(0)
     const [choiceOne, setChoiceOne] = useState(null)
     const [choiceTwo, setChoiceTwo] = useState(null)
-
-    const [timeLeft, setTimeLeft] = React.useState(60);
+    const [timeLeft, setTimeLeft] = React.useState();
+    const [gameState, setGameState] = useState(false);
 
     //shuffle cards
     const shuffleCards = () => {
@@ -29,14 +29,32 @@ function App() {
 
         setCards(shuffledCards)
         setTurns(0)
-    }
+}
 
     //handle a choice
     const handleChoice = (card) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
+
+    const startGame = () =>  {
+        setTimeLeft(60);
+        setGameState(true);
+    }
+
+    function resetTimer() {
+        setTimeLeft(60)
+        setGameState(false)
+    }
+    
     React.useEffect(() => {
-        timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+        console.log(gameState);
+        if (gameState && timeLeft > 0) {
+            setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+        } else if (gameState && timeLeft === 0) {
+            alert("LOSE")
+            clearInterval(timeLeft);
+            //END OF GAME
+        }
     }, [timeLeft]);
     
     console.log(cards, turns)
@@ -44,10 +62,8 @@ function App() {
     return (
         <div className="App">
             <h1>Pokemon memory</h1>
-            <button onClick={shuffleCards}>Start New Game</button>
-            <div>
-                <p>Time : <b>{timeLeft}</b></p>
-            </div>
+            <button onClick={() => {shuffleCards(); startGame()}}>Start New Game</button>
+            <p>Time : <b>{timeLeft}</b></p>
             <div className="card-grid">
                 {cards.map(card => (
                 <SingleCard
