@@ -32,7 +32,7 @@ function App() {
     const [turns, setTurns] = useState(0)
     const [choiceOne, setChoiceOne] = useState(null)
     const [choiceTwo, setChoiceTwo] = useState(null)
-    const [timeLeft, setTimeLeft] = React.useState();
+    const [timeLeft, setTimeLeft] = React.useState(0);
     const [gameState, setGameState] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
@@ -98,6 +98,7 @@ function App() {
         if (gameState && timeLeft > 0) {
             setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
         } else if (gameState && timeLeft === 0) {
+            setTimeLeft(0)
             alert("LOSE")
             clearInterval(timeLeft);
             //END OF GAME
@@ -106,7 +107,7 @@ function App() {
     
     console.log(cards, turns)
 
-    //start new game automagtically
+    //start new game automatically
     /*useEffect(() => {
         shuffleCards()
     }, [])*/
@@ -114,11 +115,11 @@ function App() {
     return (
         <div className="App">
             <h1>Pokemon memory</h1>
-            <button onClick={() => {shuffleCards(); startGame()}}>Start New Game</button>
             <div class="div-row">
-                <p>Time : <b>{timeLeft}</b></p>
-                <p>Turns: {turns}</p>
+                <p class="info">Time : <b>{timeLeft}</b></p>
+                <p class="info">Turns: <b>{turns}</b></p>
             </div>
+            <button onClick={() => {shuffleCards(); startGame()}}>Start New Game</button>
             <div className="card-grid">
                 {cards.map(card => (
                 <SingleCard
