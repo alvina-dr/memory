@@ -113,7 +113,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Pokemon memory</h1>
+            <h1>Pokemon Memory</h1>
             <button onClick={() => {shuffleCards(); startGame()}}>Start New Game</button>
             <div class="div-row">
                 <p>Time : <b>{timeLeft}</b></p>
