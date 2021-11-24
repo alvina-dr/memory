@@ -17,6 +17,7 @@ function App() {
     const [choiceOne, setChoiceOne] = useState(null)
     const [choiceTwo, setChoiceTwo] = useState(null)
 
+    const [timeLeft, setTimeLeft] = React.useState(60);
 
     //shuffle cards
     const shuffleCards = () => {
@@ -32,12 +33,19 @@ function App() {
     const handleChoice = (card) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
+    React.useEffect(() => {
+        timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    }, [timeLeft]);
+    
+    console.log(cards, turns)
 
     return (
         <div className="App">
             <h1>Pokemon memory</h1>
             <button onClick={shuffleCards}>Start New Game</button>
-
+            <div>
+                <p>Time : <b>{timeLeft}</b></p>
+            </div>
             <div className="card-grid">
                 {cards.map(card => (
                 <SingleCard
