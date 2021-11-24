@@ -107,9 +107,9 @@ function App() {
     console.log(cards, turns)
 
     //start new game automagtically
-    useEffect(() => {
+    /*useEffect(() => {
         shuffleCards()
-    }, [])
+    }, [])*/
 
     return (
         <div className="App">
