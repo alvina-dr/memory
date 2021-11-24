@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 
 const cardImages = [
@@ -13,6 +13,7 @@ const cardImages = [
 function App() {
     const [cards, setCards] = useState([])
     const [turns, setTurns] = useState(0)
+    const [timeLeft, setTimeLeft] = React.useState(60);
 
     //shuffle cards
     const shuffleCards = () => {
@@ -24,13 +25,19 @@ function App() {
         setTurns(0)
     }
 
+    React.useEffect(() => {
+        timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    }, [timeLeft]);
+    
     console.log(cards, turns)
 
     return (
         <div className="App">
             <h1>Pokemon memory</h1>
             <button onClick={shuffleCards}>Start New Game</button>
-
+            <div>
+                <p>Time : <b>{timeLeft}</b></p>
+            </div>
             <div className="card-grid">
                 {cards.map(card => (
                     <div className="card" key={card.id}>
