@@ -23,3 +23,7 @@ button:hover {
   grid-gap: 20px;
 }
 
+.div-row {
+  display: flex;
+  flex-direction: row;
+}

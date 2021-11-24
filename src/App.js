@@ -115,7 +115,10 @@ function App() {
         <div className="App">
             <h1>Pokemon memory</h1>
             <button onClick={() => {shuffleCards(); startGame()}}>Start New Game</button>
-            <p>Time : <b>{timeLeft}</b></p>
+            <div class="div-row">
+                <p>Time : <b>{timeLeft}</b></p>
+                <p>Turns: {turns}</p>
+            </div>
             <div className="card-grid">
                 {cards.map(card => (
                 <SingleCard
@@ -127,7 +130,6 @@ function App() {
                     />
                 ))}
             </div>
-            <p>Turns: {turns}</p>
         </div>
     );
 }
