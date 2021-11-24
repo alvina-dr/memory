@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
+import * as React from 'react';
+
 
 const cardImages = [
     { "src": "/img/cover1.png" },
