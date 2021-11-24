@@ -28,25 +28,28 @@ const cardImages = [
 ]
 
 function App() {
-    const [cards, setCards] = useState([])
-    const [turns, setTurns] = useState(0)
-    const [choiceOne, setChoiceOne] = useState(null)
-    const [choiceTwo, setChoiceTwo] = useState(null)
+    const [cards, setCards] = useState([]);
+    const [turns, setTurns] = useState(0);
+    const [choiceOne, setChoiceOne] = useState(null);
+    const [choiceTwo, setChoiceTwo] = useState(null);
     const [timeLeft, setTimeLeft] = React.useState(0);
+    const [score, setScore] = useState(0);
     const [gameState, setGameState] = useState(false);
     const [disabled, setDisabled] = useState(false);
+    const shuffledCards = [...cardImages, ...cardImages]
+    .sort(() => Math.random() - 0.5)
+    .map((card) => ({ ...card, id: Math.random() }))
+
 
     //shuffle cards
     const shuffleCards = () => {
-        const shuffledCards = [...cardImages, ...cardImages]
-            .sort(() => Math.random() - 0.5)
-            .map((card) => ({ ...card, id: Math.random() }))
 
         setChoiceOne(null)
         setChoiceTwo(null)
         setCards(shuffledCards)
         setTurns(0)
-}
+        setScore(0)
+    }
 
     //handle a choice
     const handleChoice = (card) => {
@@ -71,7 +74,8 @@ function App() {
                 setCards(prevCards => {
                     return prevCards.map(card => {
                         if (card.src === choiceOne.src) {
-                            return {...card, matched: true}
+                            setScore(score + 1)
+                            return {...card, matched: true}       
                         } else {
                             return card
                         }
@@ -117,7 +121,8 @@ function App() {
             <h1>Pokemon Memory</h1>
             <div class="div-row">
                 <p class="info">Time : <b>{timeLeft}</b></p>
-                <p class="info">Turns: <b>{turns}</b></p>
+                <p class="info">Turns : <b>{turns}</b></p>
+                <p class="info">Score : <b>{score}</b></p>
             </div>
             <button onClick={() => {shuffleCards(); startGame()}}>Start New Game</button>
             <div className="card-grid">
