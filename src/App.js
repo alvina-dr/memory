@@ -1,16 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 import * as React from 'react';
 
 
 const cardImages = [
-    { "src": "/img/cover1.png" },
-    { "src": "/img/test1.png" },
-    { "src": "/img/test2.png" },
-    { "src": "/img/test3.png" },
-    { "src": "/img/test4.png" },
-    { "src": "/img/test5.png" },
+    { "src": "/img/1.png", matched: false },
+    { "src": "/img/2.png", matched: false  },
+    { "src": "/img/3.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/1.png", matched: false },
+    { "src": "/img/2.png", matched: false  },
+    { "src": "/img/3.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/1.png", matched: false },
+    { "src": "/img/2.png", matched: false  },
+    { "src": "/img/3.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/5.png", matched: false  },
+    { "src": "/img/4.png", matched: false  },
+    { "src": "/img/6.png", matched: false  }
 ]
 
 function App() {
@@ -20,6 +34,7 @@ function App() {
     const [choiceTwo, setChoiceTwo] = useState(null)
     const [timeLeft, setTimeLeft] = React.useState();
     const [gameState, setGameState] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
     //shuffle cards
     const shuffleCards = () => {
@@ -27,6 +42,8 @@ function App() {
             .sort(() => Math.random() - 0.5)
             .map((card) => ({ ...card, id: Math.random() }))
 
+        setChoiceOne(null)
+        setChoiceTwo(null)
         setCards(shuffledCards)
         setTurns(0)
 }
@@ -46,6 +63,36 @@ function App() {
         setGameState(false)
     }
     
+    //compare 2 selected cards
+    useEffect(() => {
+        if (choiceOne && choiceTwo) {
+            setDisabled(true)
+            if (choiceOne.src === choiceTwo.src) {
+                setCards(prevCards => {
+                    return prevCards.map(card => {
+                        if (card.src === choiceOne.src) {
+                            return {...card, matched: true}
+                        } else {
+                            return card
+                        }
+                    })
+                })
+                resetTurn()
+            } else {
+                setTimeout(() => resetTurn(), 1000)
+            }
+        }
+    }, [choiceOne, choiceTwo])
+
+    console.log(cards)
+
+    const resetTurn = () => {
+        setChoiceOne(null)
+        setChoiceTwo(null)
+        setTurns(prevTurns => prevTurns + 1)
+        setDisabled(false)
+    }
+
     React.useEffect(() => {
         console.log(gameState);
         if (gameState && timeLeft > 0) {
@@ -59,6 +106,11 @@ function App() {
     
     console.log(cards, turns)
 
+    //start new game automagtically
+    useEffect(() => {
+        shuffleCards()
+    }, [])
+
     return (
         <div className="App">
             <h1>Pokemon memory</h1>
@@ -70,9 +122,12 @@ function App() {
                     key={card.id}
                     card={card}
                     handleChoice={handleChoice}
+                    flipped={card === choiceOne || card === choiceTwo || card.matched}
+                    disabled={disabled}
                     />
                 ))}
             </div>
+            <p>Turns: {turns}</p>
         </div>
     );
 }
