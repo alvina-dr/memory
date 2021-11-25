@@ -18,11 +18,11 @@ function App() {
                     <Route path="/memory">
                         <Game />
                     </Route>
-                    <Route path="/">
-                        <Home />
-                    </Route>
                     <Route path="/highscore">
                         <Highscore />
+                    </Route>
+                    <Route path="/">
+                        <Home />
                     </Route>
                 </Switch>
             </div>

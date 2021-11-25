@@ -8,7 +8,7 @@ function Highscore() {
     return (
         <div className="Highscore">
             <Header/>
-            <p>HIGHSCORE</p>
+            <p>Highscore</p>
         </div>
 
 
