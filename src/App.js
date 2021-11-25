@@ -62,6 +62,11 @@ function App() {
             return {...card, matched: true}       
             })
         })
+        setTimeout(() => setCards(prevCards => {
+            return prevCards.map(card => {
+                return {...card, matched: false};
+                })
+            }), 1000)
         setTimeout(() => shuffleCards(), 1500)
     }
 
@@ -94,7 +99,7 @@ function App() {
                 setCards(prevCards => {
                     return prevCards.map(card => {
                         if (card.src === choiceOne.src) {
-                            setScore(score + 1)
+                            setScore(score + 1); //ajoute 1 au score
                             return {...card, matched: true}       
                         } else {
                             return card
@@ -111,9 +116,9 @@ function App() {
 
     //REMET LE TOUR À ZÉRO ET CACHE LES DEUX CARTES SI ELLES SONT MAUVAISES + PERMET DE REJOUER
     const resetTurn = () => {
-        setChoiceOne(null)
-        setChoiceTwo(null)
-        setTurns(prevTurns => prevTurns + 1)
+        setChoiceOne(null) //remet la sélection de la première carte à zéro
+        setChoiceTwo(null) //remet la sélection de la deuxième carte à zéro
+        setTurns(prevTurns => prevTurns + 1); // ajoute 1 au nombre de tours joués
         setDisabled(false)
     }
 
