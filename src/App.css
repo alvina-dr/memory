@@ -76,3 +76,16 @@ h1 {
 .started {
   display: none;
 }
+
+@media screen and (max-device-width: 650px) {
+  .App {
+    max-width: 98%;
+    margin: 0 1%;
+  }
+  .card-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
