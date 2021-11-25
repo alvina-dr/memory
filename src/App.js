@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 import * as React from 'react';
+import { waitFor } from '@testing-library/dom';
 
 
 const cardImages = [
@@ -50,8 +51,19 @@ function App() {
         setCards(shuffledCards)
         setTurns(0) //remet le nombre de paire retournées à zéro
         setScore(0) //remet le nombre de paires trouvé à zéro
-        setTimeLeft(60); //indique le temps d'une partie
-        setGameState(true); //indique que le jeu a commencé et que le timer peut se déclencher
+        setTimeLeft(60) //indique le temps d'une partie
+        setGameState(true) //indique que le jeu a commencé et que le timer peut se déclencher
+    }
+
+    const restart = () => {
+        //this.setTimeout(() => this.setTimeLeft(0)); 
+        setGameState(false);
+        setCards(prevCards => {
+        return prevCards.map(card => {
+            return {...card, matched: true}       
+            })
+        })
+        setTimeout(() => shuffleCards(), 1500)
     }
 
     //CHOIX DES CARTES
@@ -112,8 +124,8 @@ function App() {
             clearInterval(timeLeft);
             setDisabled(true);
             setCards(prevCards => {
-                return prevCards.map(card => {
-                    return {...card, matched: true}       
+            return prevCards.map(card => {
+                return {...card, matched: true}       
                 })
             })
         }
@@ -129,6 +141,7 @@ function App() {
                     <p class="info">Score : <b>{score}</b></p>
                 </div>
                 <div class="div-row btns">
+                    <button onClick={restart} class="btn">Restart</button>
                     <button onClick={pauseGame} class="btn">Home</button>
                     <button onClick={pauseGame} class="btn">||</button>
                 </div>
