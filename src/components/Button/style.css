@@ -1,0 +1,8 @@
+.btn {
+    justify-self: flex-end;
+    padding: 0px 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 5px;
+    font-family: "VT323";
+  }
