@@ -39,7 +39,7 @@ function App() {
     .sort(() => Math.random() - 0.5)
     .map((card) => ({ ...card, id: Math.random() }))
     const [showStartButton, setShowStartButton] = React.useState(true)
-    const [showHome, setShowHome] = useState(false);
+    //const [showHome, setShowHome] = useState(false);
 
 
 
