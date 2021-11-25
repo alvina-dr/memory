@@ -8,11 +8,20 @@ function Home() {
     return (
         <div className="Home">
             <Header/>
-            <p>Welcome to our website.</p>
+            <p>Welcome to our website.<br/>Here you can play a pokemon memory game.</p>
             <Button link="/memory">
-                Game       
+                Pokemon Memory       
             </Button>
-            <p>yup</p>
+            <p>We hope you enjoy it.</p>
+            <p>To go and have a look at the scoreboard :</p>
+            <Button link="/highscore">
+                Highscore       
+            </Button>
+            <p>And here you can go and see all the pokemons you collected.</p>
+            <Button link="/pokedex">
+                Pokedex       
+            </Button>
+            <p>Enjoy ! :D</p>
         </div>
     );
 }

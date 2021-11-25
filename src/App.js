@@ -4,10 +4,11 @@ import {
     Switch,
     Route
   } from "react-router-dom";
+import './App.css';
 import Game from './pages/Game';
 import Home from './pages/Home';
 import Highscore from './pages/Highscore';
-import './App.css';
+import Pokedex from './pages/Pokedex';
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
                 <Switch>
                     <Route path="/memory">
                         <Game />
+                    </Route>
+                    <Route path="/pokedex">
+                        <Pokedex />
                     </Route>
                     <Route path="/highscore">
                         <Highscore />

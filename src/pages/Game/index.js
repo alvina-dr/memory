@@ -150,7 +150,7 @@ function Game() {
                 })
             })
         }
-    }, [timeLeft, gameState]);
+    }, [timeLeft, gameState, score, highscore]);
 
     //►
     return (
