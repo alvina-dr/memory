@@ -79,6 +79,11 @@ function App() {
     //PAUSE OU DÉPAUSE LE JEU
     const pauseGame = () =>  {
         setGameState(!gameState);
+        if (gameState) { //le jeu vient d'être désactivé
+            setDisabled(true) //le joueur ne peut pas sélectionner une carte
+        } else if (!gameState) { //le jeu vient d'être réactivé
+            setDisabled(false); //le joueur peut sélectionner une carte
+        }
     }
 
     // const getHome = () => {
