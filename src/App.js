@@ -47,6 +47,7 @@ function App() {
     const shuffleCards = () => {
         setChoiceOne(null) //met la première sélection de carte à zéro
         setChoiceTwo(null) //met la deuxième sélection de carte à zéro
+        setDisabled(false); //le joueur peut sélectionner une carte
         setCards(shuffledCards)
         setTurns(0) //remet le nombre de paire retournées à zéro
         setScore(0) //remet le nombre de paires trouvé à zéro
