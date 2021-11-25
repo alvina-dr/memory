@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 import * as React from 'react';
-import { waitFor } from '@testing-library/dom';
-
 
 const cardImages = [
     { "src": "/img/1.png", matched: false },
@@ -77,10 +75,10 @@ function App() {
         setGameState(!gameState);
     }
 
-    const getHome = () => {
-        setGameState(false);
-        setShowHome(true);
-    }
+    // const getHome = () => {
+    //     setGameState(false);
+    //     setShowHome(true);
+    // }
 
     //REMET LE TIMER À ZÉRO
     // function resetTimer() {
