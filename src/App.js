@@ -40,6 +40,7 @@ function App() {
     .sort(() => Math.random() - 0.5)
     .map((card) => ({ ...card, id: Math.random() }))
     const [showStartButton, setShowStartButton] = React.useState(true)
+    const [showHome, setShowHome] = useState(false);
 
 
 
@@ -62,6 +63,11 @@ function App() {
     //PAUSE OU DÉPAUSE LE JEU
     const pauseGame = () =>  {
         setGameState(!gameState);
+    }
+
+    const getHome = () => {
+        setGameState(false);
+        setShowHome(true);
     }
 
     //REMET LE TIMER À ZÉRO
@@ -112,6 +118,7 @@ function App() {
             clearInterval(timeLeft);
             setDisabled(true);
             setCards(prevCards => {
+                
                 return prevCards.map(card => {
                     return {...card, matched: true}       
                 })
@@ -130,13 +137,14 @@ function App() {
                     <p class="info">Score : <b>{score}</b></p>
                 </div>
                 <div class="div-row btns">
-                    <button onClick={pauseGame} class="btn">↻</button>
-                    <button onClick={pauseGame} class="btn">Home</button>
+                    <button onClick={getHome} class="btn">Home</button>
                     <button onClick={pauseGame} class="btn">{gameState ? "||" : "►"}</button> 
+                    <button onClick={pauseGame} class="btn">↻</button>
                 </div>
             </div>
             <button onClick={ () => {shuffleCards(); setShowStartButton(false)}} className={showStartButton ? "" : "started"}>Play</button>
 
+            <div ></div>
             <div className="card-grid">
                 {cards.map(card => (
                 <SingleCard
