@@ -65,10 +65,10 @@ function App() {
     }
 
     //REMET LE TIMER À ZÉRO
-    function resetTimer() {
-        setTimeLeft(60)
-        setGameState(false)
-    }
+    // function resetTimer() {
+    //     setTimeLeft(60)
+    //     setGameState(false)
+    // }
     
     //COMPARE LES DEUX CARTES SÉLECTIONNÉS POUR VOIR SI ELLES MATCHENT
     useEffect(() => {
@@ -90,7 +90,7 @@ function App() {
                 setTimeout(() => resetTurn(), 1000)
             }
         }
-    }, [choiceOne, choiceTwo])
+    }, [choiceOne, choiceTwo, score])
 
 
     //REMET LE TOUR À ZÉRO ET CACHE LES DEUX CARTES SI ELLES SONT MAUVAISES + PERMET DE REJOUER
@@ -117,7 +117,7 @@ function App() {
                 })
             })
         }
-    }, [timeLeft]);
+    }, [timeLeft, gameState]);
 
     return (
         <div className="App">
@@ -129,6 +129,7 @@ function App() {
                     <p class="info">Score : <b>{score}</b></p>
                 </div>
                 <div class="div-row btns">
+                    <button onClick={pauseGame} class="btn">↻</button>
                     <button onClick={pauseGame} class="btn">Home</button>
                     <button onClick={pauseGame} class="btn">||</button>
                 </div>
