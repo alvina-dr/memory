@@ -33,6 +33,7 @@ function App() {
     const [choiceTwo, setChoiceTwo] = useState(null);
     const [timeLeft, setTimeLeft] = React.useState(0);
     const [score, setScore] = useState(0);
+    const [highscore, setHighscore] = useState(0);
     const [gameState, setGameState] = useState(false);
     const [disabled, setDisabled] = useState(false);
     const shuffledCards = [...cardImages, ...cardImages]
@@ -138,6 +139,9 @@ function App() {
             setTimeLeft(0)
             clearInterval(timeLeft);
             setDisabled(true);
+            if (score > highscore) {
+                setHighscore(score)
+            }
             setCards(prevCards => {
             return prevCards.map(card => {
                 return {...card, matched: true}       
@@ -155,6 +159,8 @@ function App() {
                     <p class="info">Time : <b>{timeLeft}</b></p>
                     <p class="info">Turns: <b>{turns}</b></p>
                     <p class="info">Score : <b>{score}</b></p>
+                    <p class="info">Highscore : <b>{highscore}</b></p>
+
                 </div>
                 <div class="div-row btns">
                     <button onClick={pauseGame} class="btn">Home</button>
