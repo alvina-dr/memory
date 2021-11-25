@@ -1,0 +1,35 @@
+nav {
+    font-family: "VT323";
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1 {
+    font-family: "VT323";
+    text-transform: uppercase;
+    align-self: flex-start;
+    width: fit-content;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+a {
+    margin-right: 10px;
+    color: white;
+}
+
+a:hover {
+    color: blue;
+}
