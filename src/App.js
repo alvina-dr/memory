@@ -61,7 +61,7 @@ function App() {
 
     //PAUSE OU DÉPAUSE LE JEU
     const pauseGame = () =>  {
-        setGameState(!setGameState);
+        setGameState(!gameState);
     }
 
     //REMET LE TIMER À ZÉRO
@@ -119,6 +119,7 @@ function App() {
         }
     }, [timeLeft, gameState]);
 
+    //►
     return (
         <div className="App">
             <h1>Pokemon Memory</h1>
@@ -131,7 +132,7 @@ function App() {
                 <div class="div-row btns">
                     <button onClick={pauseGame} class="btn">↻</button>
                     <button onClick={pauseGame} class="btn">Home</button>
-                    <button onClick={pauseGame} class="btn">||</button>
+                    <button onClick={pauseGame} class="btn">{gameState ? "||" : "►"}</button> 
                 </div>
             </div>
             <button onClick={ () => {shuffleCards(); setShowStartButton(false)}} className={showStartButton ? "" : "started"}>Play</button>
