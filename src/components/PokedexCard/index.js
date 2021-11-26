@@ -4,7 +4,7 @@ function PokedexCard({ card, possessed }) {
     
     return (
         <div className="card">
-            <img className="pokedexCard" src={card.src} />
+            <img className="pokedexCard" src={card.src} alt="Pokedex Card Image" />
         </div>
 )}
 
