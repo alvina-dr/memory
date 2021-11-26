@@ -46,11 +46,11 @@ function Pokedex() {
             <Header />
             <p>Pokedex</p>
             <div className="card-grid">
-            {cards.map(card => (
+            {/* {cards.map(card => (
                 <PokedexCard
                 key={card.id}
                 card={card}/>
-                ))}
+                ))} */}
             </div>
         </div>
 
