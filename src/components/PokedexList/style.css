@@ -9,15 +9,30 @@
     position: relative;
     display: flex;
     width: 100%;
+    z-index: 1;
+    transition: 0.2s;
+}
+
+.have-true:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px black;
+    z-index: 5;
+    border-radius: 10px;
 }
 
 .card-image {
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%;
 }
 
 .have-false { /*Opacité de l'image réduite si le pokémon n'est pas possédé*/
-    opacity: 0.7;
+    filter:brightness(0.5);
+}
+
+.have-false:hover { /*Opacité de l'image réduite si le pokémon n'est pas possédé*/
+    transform: scale(1);
+    box-shadow: none;
+    z-index: 0;
 }
 
 .div-text-pokedex {
