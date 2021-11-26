@@ -1,7 +1,7 @@
 import * as React from 'react';
 // import { useState } from 'react/cjs/react.development';
 import Header from '../../components/Header';
-import PokedexCard from '../../components/PokedexCard';
+//import PokedexCard from '../../components/PokedexCard';
 import './style.css';
 
 // const cardImages = [
