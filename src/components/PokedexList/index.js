@@ -29,7 +29,7 @@ import './style.css';
 const PokedexCard = props => {
   return (
     <div className="card">
-      <img className="card-image" src={props.src}/>
+      <img className="card-image" src={props.src} alt="Pokemon card"/>
       <div className="div-row-pokedex">
         <p>{props.name}</p>
         <p>{props.id}</p>
