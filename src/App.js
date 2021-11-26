@@ -10,7 +10,10 @@ import Home from './pages/Home';
 import Highscore from './pages/Highscore';
 import Pokedex from './pages/Pokedex';
 
+
+
 function App() {
+    
 
     return (
         <Router>

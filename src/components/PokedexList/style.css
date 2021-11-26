@@ -1,0 +1,19 @@
+.div-row-pokedex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+}
+
+.card {
+    display: flex;
+    width: fit-content;
+}
+
+.pokedex-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
