@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'; // ES6
 import './style.css';
 
  const pokedexCards = [
-  {name: 'Turtwig', id: '387', src:'/img/1.png', have:true},
-  {name: 'Grotle', id: '388', src:'/img/2.png', have:true},
-  {name: 'Torterra', id: '389', src:'/img/3.png', have:false},
-  {name: 'Chimchar', id: '390', src:'/img/4.png', have:true},
-  {name: 'Monferno', id: '391', src:'/img/4.png', have:true},
-  {name: 'Infernape', id: '392', src:'/img/4.png', have:false},
+  {name: 'Turtwig', id: '387', src:'/img/pokedex/387.png', have:true},
+  {name: 'Grotle', id: '388', src:'/img/pokedex/388.png', have:true},
+  {name: 'Torterra', id: '389', src:'/img/pokedex/389.png', have:false},
+  {name: 'Chimchar', id: '390', src:'/img/pokedex/390.png', have:true},
+  {name: 'Monferno', id: '391', src:'/img/pokedex/391.png', have:true},
+  {name: 'Infernape', id: '392', src:'/img/pokedex/392.png', have:false},
 ];
 
 const PokedexCard = props => {
   return (
-    <div className="card">
+    <div className="card-pokedex">
       <img className={props.have ? "have-true card-image" : "have-false card-image"} src={props.src} alt="Pokemon card"/>
       <img className={props.have ? "have-icon" : "not-have-icon"} src='/img/pokedex/have.png' alt="Have icon"/>
       <div className="div-text-pokedex">

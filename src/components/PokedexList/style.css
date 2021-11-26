@@ -5,8 +5,8 @@
     align-items: flex-start;
     width: 90%;
     height: 100%;
-    position: absolute;
     margin: 0 5%;
+    position: absolute;
 }
 
 .pokedex-text-name {
@@ -17,35 +17,40 @@
     margin-bottom: 5px;
 }
 
-.card {
+.card-pokedex {
     display: flex;
     width: 100%;
+    height: auto;
 }
 
 .pokedex-grid {
     margin-top: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
 }
 
 .have-false {
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
-.card .have-icon {
-position: absolute;
-border: none;
-width: 20px;
-right: 0;
-margin: 5px;
-
+.card-pokedex .have-icon {
+    position: absolute;
+    border: none;
+    width: 20px;
+    right: 0;
+    margin: 5px;
 }
 
-.card .not-have-icon {
+.card-pokedex .not-have-icon {
     position: absolute;
     border: none;
     display: none;
+}
+
+.card-image {
+    width: 100%;
+    border-radius: 5px;
 }
 
 
