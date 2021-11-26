@@ -164,9 +164,6 @@ function Game() {
                     <p class="info">Highscore : <b>{highscore}</b></p>
                 </div>
                 <div class="div-row btns">
-                    <Button link="/">
-                        Home
-                    </Button>
                     <button onClick={pauseGame} class="btn">{gameState ? "||" : "►"}</button> 
                     <button onClick={restart} class="btn">↻</button>
                 </div>
