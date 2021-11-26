@@ -16,9 +16,9 @@ const PokedexCard = props => {
     <div className="card">
       <img className={props.have ? "have-true card-image" : "have-false card-image"} src={props.src} alt="Pokemon card"/>
       <img className={props.have ? "have-icon" : "not-have-icon"} src='/img/pokedex/have.png' alt="Have icon"/>
-      <div className="div-row-pokedex">
-        <p>{props.name}</p>
-        <p>#{props.id}</p>
+      <div className="div-text-pokedex">
+        <p className="pokedex-text-name">{props.name}</p>
+        <p className="pokedex-text-id">#{props.id}</p>
       </div>
     </div>
   );
