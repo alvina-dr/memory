@@ -156,13 +156,12 @@ function Game() {
     return (
         <div className="Game">
             <Header/>
-            <div class="div-row">
+            <div class="div-info-button-game">
                 <div class="div-row">
                     <p class="info">Time : <b>{timeLeft}</b></p>
                     <p class="info">Turns: <b>{turns}</b></p>
                     <p class="info">Score : <b>{score}</b></p>
                     <p class="info">Highscore : <b>{highscore}</b></p>
-
                 </div>
                 <div class="div-row btns">
                     <Button link="/">

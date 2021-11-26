@@ -13,6 +13,7 @@ h1 {
     width: fit-content;
     margin-top: 0px;
     margin-bottom: 10px;
+    text-align: left;
   }
 
 ul {
@@ -33,3 +34,18 @@ a {
 a:hover {
     color: blue;
 }
+
+
+@media screen and (max-device-width: 550px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (max-device-width: 300px) {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+  }

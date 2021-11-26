@@ -30,7 +30,7 @@ button:hover {
   width: 100%;
 }
 
-@media screen and (max-device-width: 650px) {
+@media screen and (max-device-width: 700px) {
   .App {
     max-width: 98%;
     margin: 0 1%;
