@@ -2,18 +2,49 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
     position: absolute;
+    margin: 0 5%;
+}
+
+.div-row-pokedex p {
+    margin-top: 10px;
 }
 
 .card {
     display: flex;
-    width: fit-content;
+    width: 100%;
 }
 
 .pokedex-grid {
     margin-top: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
 }
+
+.have-false {
+    opacity: 0.5;
+}
+
+.card .have-icon {
+position: absolute;
+border: none;
+width: 20px;
+}
+
+.card .not-have-icon {
+    position: absolute;
+    border: none;
+    display: none;
+}
+
+
+@media screen and (max-device-width: 650px) {
+    .pokedex-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+  }
+
