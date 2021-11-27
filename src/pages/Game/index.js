@@ -157,7 +157,7 @@ function Game() {
                 })
             })
         }
-    }, [timeLeft, gameState, score, highscore]);
+    }, [timeLeft, gameState, score, highscore, localHighscore]);
 
     return (
         <div className="Game">
