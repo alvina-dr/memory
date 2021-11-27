@@ -34,7 +34,13 @@ function Game() {
     const [choiceTwo, setChoiceTwo] = useState(null);
     const [timeLeft, setTimeLeft] = React.useState(0);
     const [score, setScore] = useState(0);
-    const [highscore, setHighscore] = useState(0);
+    const [highscore, setHighscore] = useState(() => {
+        // getting stored value
+        const saved = localStorage.getItem("highscore");
+        const initialValue = JSON.parse(saved);
+        return initialValue || "";
+      });
+    const [localHighscore, setLocalHighscore] = useState(0);
     const [gameState, setGameState] = useState(false);
     const [disabled, setDisabled] = useState(false);
     const shuffledCards = [...cardImages, ...cardImages]
@@ -141,7 +147,9 @@ function Game() {
             clearInterval(timeLeft);
             setDisabled(true);
             if (score > highscore) {
-                setHighscore(score)
+                setLocalHighscore(score);
+                localStorage.setItem("highscore", JSON.stringify(localHighscore));
+                setHighscore(localStorage.getItem("highscore"));
             }
             setCards(prevCards => {
             return prevCards.map(card => {
@@ -151,7 +159,6 @@ function Game() {
         }
     }, [timeLeft, gameState, score, highscore]);
 
-    //►
     return (
         <div className="Game">
             <Header/>

@@ -24,10 +24,6 @@ function Highscore() {
             <label>Choose your pseudo :</label><br/>
             <input type="text" value={pseudo} onChange={(e) => {setPseudo(e.target.value)}} placeholder="Pseudo" ></input>
         </div>
-
-
-
-
     );
 }
 
