@@ -69,11 +69,26 @@
     display: none;
 }
 
-@media screen and (max-device-width: 650px) {
+@media screen and (max-device-width: 900px) {
+    .pokedex-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+}
+
+@media screen and (max-device-width: 700px) {
     .pokedex-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 10px;
     }
-  }
+}
 
+@media screen and (max-device-width: 350px) {
+    .pokedex-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+}

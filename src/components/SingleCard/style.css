@@ -13,6 +13,7 @@
     transform: rotateY(90deg);
     transition: all ease-in 0.2s;
     position: absolute;
+    width: 100%;
 }
 .flipped .front {
     transform: rotateY(0deg);
