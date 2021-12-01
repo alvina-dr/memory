@@ -3,31 +3,32 @@ import SingleCard from '../../components/SingleCard';
 import * as React from 'react';
 import Header from '../../components/Header';
 import './style.css';
+import { FindPokedexCard } from '../../components/PokedexList';
 
 const cardImages = [
-    { "src": "/img/1.png", matched: false },
-    { "src": "/img/2.png", matched: false  },
-    { "src": "/img/3.png", matched: false  },
-    { "src": "/img/4.png", matched: false  },
-    { "src": "/img/5.png", matched: false  },
-    { "src": "/img/6.png", matched: false },
-    { "src": "/img/7.png", matched: false  },
-    { "src": "/img/8.png", matched: false  },
-    { "src": "/img/9.png", matched: false  },
-    { "src": "/img/10.png", matched: false  },
-    { "src": "/img/11.png", matched: false  },
-    { "src": "/img/12.png", matched: false  },
-    { "src": "/img/13.png", matched: false  },
-    { "src": "/img/14.png", matched: false },
-    { "src": "/img/15.png", matched: false  },
-    { "src": "/img/16.png", matched: false  },
-    { "src": "/img/17.png", matched: false  },
-    { "src": "/img/18.png", matched: false  },
-    { "src": "/img/19.png", matched: false  },
-    { "src": "/img/20.png", matched: false  }
+    { "src": "/img/1.png", matched: false, pokedexid:'387'},
+    { "src": "/img/2.png", matched: false, pokedexid:'388'  },
+    { "src": "/img/3.png", matched: false, pokedexid:'389'  },
+    { "src": "/img/4.png", matched: false, pokedexid:'390'  },
+    { "src": "/img/5.png", matched: false, pokedexid:'391'  },
+    { "src": "/img/6.png", matched: false, pokedexid:'392' },
+    { "src": "/img/7.png", matched: false, pokedexid:'393'  },
+    { "src": "/img/8.png", matched: false, pokedexid:'394'  },
+    { "src": "/img/9.png", matched: false, pokedexid:'395'  },
+    { "src": "/img/10.png", matched: false, pokedexid:'396'  },
+    { "src": "/img/11.png", matched: false, pokedexid:'397'  },
+    { "src": "/img/12.png", matched: false, pokedexid:'398'  },
+    { "src": "/img/13.png", matched: false, pokedexid:'399'  },
+    { "src": "/img/14.png", matched: false, pokedexid:'400' },
+    { "src": "/img/15.png", matched: false, pokedexid:'401'  },
+    { "src": "/img/16.png", matched: false, pokedexid:'402'  },
+    { "src": "/img/17.png", matched: false, pokedexid:'403'  },
+    { "src": "/img/18.png", matched: false, pokedexid:'404'  },
+    { "src": "/img/19.png", matched: false, pokedexid:'405'  },
+    { "src": "/img/20.png", matched: false, pokedexid:'406'  }
 ]
 
-function Game() {
+export default function Game() {
     const [cards, setCards] = useState([]);
     const [turns, setTurns] = useState(0);
     const [choiceOne, setChoiceOne] = useState(null);
@@ -47,8 +48,12 @@ function Game() {
     .sort(() => Math.random() - 0.5)
     .map((card) => ({ ...card, id: Math.random() }))
     const [showStartButton, setShowStartButton] = React.useState(true)
-    //const [showHome, setShowHome] = useState(false);
-
+    //let [pokedexCardsHave, setPokedexCardsHave] = useState([]);
+    let [pokedexCardsHave, setPokedexCardsHave] = useState(() => {
+        const ls = localStorage.getItem("pokedexCardsHave");
+        if (ls) return JSON.parse(ls);
+        else return [];
+      });
 
 
     //LANCE LE JEU + REMET TIMER À ZÉRO + MÉLANGE LES CARTES
@@ -81,8 +86,9 @@ function Game() {
 
     //CHOIX DES CARTES
     const handleChoice = (card) => {
-        choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+        choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
     }
+
 
     //PAUSE OU DÉPAUSE LE JEU
     const pauseGame = () =>  {
@@ -93,17 +99,6 @@ function Game() {
             setDisabled(false); //le joueur peut sélectionner une carte
         }
     }
-
-    // const getHome = () => {
-    //     setGameState(false);
-    //     setShowHome(true);
-    // }
-
-    //REMET LE TIMER À ZÉRO
-    // function resetTimer() {
-    //     setTimeLeft(60)
-    //     setGameState(false)
-    // }
     
     //COMPARE LES DEUX CARTES SÉLECTIONNÉS POUR VOIR SI ELLES MATCHENT
     useEffect(() => {
@@ -114,7 +109,11 @@ function Game() {
                     return prevCards.map(card => {
                         if (card.src === choiceOne.src) {
                             setScore(score + 1); //ajoute 1 au score
-                            return {...card, matched: true}       
+                            setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]);
+                            localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave));
+                            console.log(localStorage.getItem("pokedexCardsHave"));
+                            return {...card, matched:true, pokedexCardsHave};
+                            //return {...card, matched: true};
                         } else {
                             return card
                         }
@@ -125,7 +124,7 @@ function Game() {
                 setTimeout(() => resetTurn(), 1000)
             }
         }
-    }, [choiceOne, choiceTwo, score])
+    }, [choiceOne, choiceTwo, score, pokedexCardsHave])
 
 
     //REMET LE TOUR À ZÉRO ET CACHE LES DEUX CARTES SI ELLES SONT MAUVAISES + PERMET DE REJOUER
@@ -139,7 +138,6 @@ function Game() {
 
     //DÉCOMPTE EN SECONDES
     React.useEffect(() => {
-        console.log(gameState);
         if (gameState && timeLeft > 0) {
             setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
         } else if (gameState && timeLeft === 0) {
@@ -159,19 +157,21 @@ function Game() {
         }
     }, [timeLeft, gameState, score, highscore, localHighscore]);
 
+
+
     return (
         <div className="Game">
             <Header/>
-            <div class="div-info-button-game">
-                <div class="div-row">
-                    <p class="info">Time : <b>{timeLeft}</b></p>
-                    <p class="info">Turns: <b>{turns}</b></p>
-                    <p class="info">Score : <b>{score}</b></p>
-                    <p class="info">Highscore : <b>{highscore}</b></p>
+            <div className="div-info-button-game">
+                <div className="div-row">
+                    <p className="info">Time : <b>{timeLeft}</b></p>
+                    <p className="info">Turns: <b>{turns}</b></p>
+                    <p className="info">Score : <b>{score}</b></p>
+                    <p className="info">Highscore : <b>{highscore}</b></p>
                 </div>
-                <div class="div-row btns">
-                    <button onClick={pauseGame} class="btn">{gameState ? "||" : "►"}</button> 
-                    <button onClick={restart} class="btn">↻</button>
+                <div className="div-row btns">
+                    <button onClick={pauseGame} className="btn">{gameState ? "||" : "►"}</button> 
+                    <button onClick={restart} className="btn">↻</button>
                 </div>
             </div>
             <button onClick={ () => {shuffleCards(); setShowStartButton(false)}} className={showStartButton ? "" : "started"}>Play</button>
@@ -192,5 +192,3 @@ function Game() {
         </div>
     );
 }
-
-export default Game
