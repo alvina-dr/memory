@@ -4,6 +4,12 @@ import './style.css';
 import { PokedexCard } from './pokedex-card';
 
 const pokedexCards = [
+  {name: 'Rattata', key: '019', src:'/img/pokedex/019.png'},
+  {name: 'Pikachu', key: '025', src:'/img/pokedex/025.png'},
+  {name: 'Zubat', key: '041', src:'/img/pokedex/041.png'},
+  {name: 'Abra', key: '063', src:'/img/pokedex/063.png'},
+  {name: 'Machop', key: '066', src:'/img/pokedex/066.png'},
+
   {name: 'Turtwig', key: '387', src:'/img/pokedex/387.png'},
   {name: 'Grotle', key: '388', src:'/img/pokedex/388.png'},
   {name: 'Torterra', key: '389', src:'/img/pokedex/389.png'},

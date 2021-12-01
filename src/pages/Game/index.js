@@ -6,26 +6,32 @@ import './style.css';
 import { FindPokedexCard } from '../../components/PokedexList';
 
 const cardImages = [
-    { "src": "/img/1.png", matched: false, pokedexid:'387'},
-    { "src": "/img/2.png", matched: false, pokedexid:'388'  },
-    { "src": "/img/3.png", matched: false, pokedexid:'389'  },
-    { "src": "/img/4.png", matched: false, pokedexid:'390'  },
-    { "src": "/img/5.png", matched: false, pokedexid:'391'  },
-    { "src": "/img/6.png", matched: false, pokedexid:'392' },
-    { "src": "/img/7.png", matched: false, pokedexid:'393'  },
-    { "src": "/img/8.png", matched: false, pokedexid:'394'  },
-    { "src": "/img/9.png", matched: false, pokedexid:'395'  },
-    { "src": "/img/10.png", matched: false, pokedexid:'396'  },
-    { "src": "/img/11.png", matched: false, pokedexid:'397'  },
-    { "src": "/img/12.png", matched: false, pokedexid:'398'  },
-    { "src": "/img/13.png", matched: false, pokedexid:'399'  },
-    { "src": "/img/14.png", matched: false, pokedexid:'400' },
-    { "src": "/img/15.png", matched: false, pokedexid:'401'  },
-    { "src": "/img/16.png", matched: false, pokedexid:'402'  },
-    { "src": "/img/17.png", matched: false, pokedexid:'403'  },
-    { "src": "/img/18.png", matched: false, pokedexid:'404'  },
-    { "src": "/img/19.png", matched: false, pokedexid:'405'  },
-    { "src": "/img/20.png", matched: false, pokedexid:'406'  }
+    /*{ "src": "/img/019.png", matched: false, pokedexid:'019'},
+    { "src": "/img/025.png", matched: false, pokedexid:'025'},
+    { "src": "/img/041.png", matched: false, pokedexid:'041'},
+    { "src": "/img/063.png", matched: false, pokedexid:'063'},
+    { "src": "/img/066.png", matched: false, pokedexid:'066'},*/
+
+    { "src": "/img/387.png", matched: false, pokedexid:'387'},
+    { "src": "/img/388.png", matched: false, pokedexid:'388'  },
+    { "src": "/img/389.png", matched: false, pokedexid:'389'  },
+    { "src": "/img/390.png", matched: false, pokedexid:'390'  },
+    { "src": "/img/391.png", matched: false, pokedexid:'391'  },
+    { "src": "/img/392.png", matched: false, pokedexid:'392' },
+    { "src": "/img/393.png", matched: false, pokedexid:'393'  },
+    { "src": "/img/394.png", matched: false, pokedexid:'394'  },
+    { "src": "/img/395.png", matched: false, pokedexid:'395'  },
+    { "src": "/img/396.png", matched: false, pokedexid:'396'  },
+    { "src": "/img/397.png", matched: false, pokedexid:'397'  },
+    { "src": "/img/398.png", matched: false, pokedexid:'398'  },
+    { "src": "/img/399.png", matched: false, pokedexid:'399'  },
+    { "src": "/img/400.png", matched: false, pokedexid:'400' },
+    { "src": "/img/401.png", matched: false, pokedexid:'401'  },
+    { "src": "/img/402.png", matched: false, pokedexid:'402'  },
+    { "src": "/img/403.png", matched: false, pokedexid:'403'  },
+    { "src": "/img/404.png", matched: false, pokedexid:'404'  },
+    { "src": "/img/405.png", matched: false, pokedexid:'405'  },
+    { "src": "/img/406.png", matched: false, pokedexid:'406'  }
 ]
 
 export default function Game() {
