@@ -1,22 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types'; // ES6
 import './style.css';
-import { useLocalStorage } from "../../useLocalStorage";
 
 export const PokedexCard = props => {
 
-  console.log(localStorage.getItem("pokedexCardsHave"));
-
-  const pokedexCardsHave = localStorage.getItem("pokedexCardsHave");
-  console.log("gotten from use local storage to avoid use state problem" + pokedexCardsHave + "end of gotten");
-
-  /*let [pokedexCardsHave] = useState(() => {
-    const ls = localStorage.getItem("pokedexCardsHave");
-    if (ls) return JSON.parse(ls);
-    else return [];
-  });  /*console.log("Je récupère mon array dans le local storage : " + pokedexCardsHave)*/
-  const isHave = pokedexCardsHave.includes(props.pokedexid);
-  console.log(isHave);
+  const pokedexCardsHave = localStorage.getItem("pokedexCardsHave"); //VA CHERCHER LA LISTE DES POKÉMONS POSSÉDÉS
+  const isHave = pokedexCardsHave.includes(props.pokedexid); //VÉRIFIE QUE LA CARTE QUE L'ON REGARDE FAIT PARTIE DE CETTE LISTE
 
   return (
     <div className={isHave ? "have-true card-pokedex" : "have-false card-pokedex"}>
@@ -30,8 +19,6 @@ export const PokedexCard = props => {
   );
 
 };
-
-
 
 PokedexCard.propTypes = {
   name: PropTypes.string,

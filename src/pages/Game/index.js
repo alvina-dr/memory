@@ -6,32 +6,32 @@ import './style.css';
 import { FindPokedexCard } from '../../components/PokedexList';
 
 const cardImages = [
-    /*{ "src": "/img/019.png", matched: false, pokedexid:'019'},
-    { "src": "/img/025.png", matched: false, pokedexid:'025'},
-    { "src": "/img/041.png", matched: false, pokedexid:'041'},
-    { "src": "/img/063.png", matched: false, pokedexid:'063'},
-    { "src": "/img/066.png", matched: false, pokedexid:'066'},*/
+    /*{ "src": "/img/019.jpg", matched: false, pokedexid:'019'},
+    { "src": "/img/025.jpg", matched: false, pokedexid:'025'},
+    { "src": "/img/041.jpg", matched: false, pokedexid:'041'},
+    { "src": "/img/063.jpg", matched: false, pokedexid:'063'},
+    { "src": "/img/066.jpg", matched: false, pokedexid:'066'},*/
 
-    { "src": "/img/387.png", matched: false, pokedexid:'387'},
-    { "src": "/img/388.png", matched: false, pokedexid:'388'  },
-    { "src": "/img/389.png", matched: false, pokedexid:'389'  },
-    { "src": "/img/390.png", matched: false, pokedexid:'390'  },
-    { "src": "/img/391.png", matched: false, pokedexid:'391'  },
-    { "src": "/img/392.png", matched: false, pokedexid:'392' },
-    { "src": "/img/393.png", matched: false, pokedexid:'393'  },
-    { "src": "/img/394.png", matched: false, pokedexid:'394'  },
-    { "src": "/img/395.png", matched: false, pokedexid:'395'  },
-    { "src": "/img/396.png", matched: false, pokedexid:'396'  },
-    { "src": "/img/397.png", matched: false, pokedexid:'397'  },
-    { "src": "/img/398.png", matched: false, pokedexid:'398'  },
-    { "src": "/img/399.png", matched: false, pokedexid:'399'  },
-    { "src": "/img/400.png", matched: false, pokedexid:'400' },
-    { "src": "/img/401.png", matched: false, pokedexid:'401'  },
-    { "src": "/img/402.png", matched: false, pokedexid:'402'  },
-    { "src": "/img/403.png", matched: false, pokedexid:'403'  },
-    { "src": "/img/404.png", matched: false, pokedexid:'404'  },
-    { "src": "/img/405.png", matched: false, pokedexid:'405'  },
-    { "src": "/img/406.png", matched: false, pokedexid:'406'  }
+    { "src": "/img/387.jpg", matched: false, pokedexid:'387'},
+    { "src": "/img/388.jpg", matched: false, pokedexid:'388'  },
+    { "src": "/img/389.jpg", matched: false, pokedexid:'389'  },
+    { "src": "/img/390.jpg", matched: false, pokedexid:'390'  },
+    { "src": "/img/391.jpg", matched: false, pokedexid:'391'  },
+    { "src": "/img/392.jpg", matched: false, pokedexid:'392' },
+    { "src": "/img/393.jpg", matched: false, pokedexid:'393'  },
+    { "src": "/img/394.jpg", matched: false, pokedexid:'394'  },
+    { "src": "/img/395.jpg", matched: false, pokedexid:'395'  },
+    { "src": "/img/396.jpg", matched: false, pokedexid:'396'  },
+    { "src": "/img/397.jpg", matched: false, pokedexid:'397'  },
+    { "src": "/img/398.jpg", matched: false, pokedexid:'398'  },
+    { "src": "/img/399.jpg", matched: false, pokedexid:'399'  },
+    { "src": "/img/400.jpg", matched: false, pokedexid:'400' },
+    { "src": "/img/401.jpg", matched: false, pokedexid:'401'  },
+    { "src": "/img/402.jpg", matched: false, pokedexid:'402'  },
+    { "src": "/img/403.jpg", matched: false, pokedexid:'403'  },
+    { "src": "/img/404.jpg", matched: false, pokedexid:'404'  },
+    { "src": "/img/405.jpg", matched: false, pokedexid:'405'  },
+    { "src": "/img/406.jpg", matched: false, pokedexid:'406'  }
 ]
 
 export default function Game() {
@@ -45,7 +45,7 @@ export default function Game() {
         // getting stored value
         const saved = localStorage.getItem("highscore");
         const initialValue = JSON.parse(saved);
-        return initialValue || "";
+        return initialValue || "0";
       });
     const [localHighscore, setLocalHighscore] = useState(0);
     const [gameState, setGameState] = useState(false);
@@ -115,11 +115,10 @@ export default function Game() {
                     return prevCards.map(card => {
                         if (card.src === choiceOne.src) {
                             setScore(score + 1); //ajoute 1 au score
-                            setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]);
-                            localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave));
+                            setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]); //AJOUTE LE POKÉMON DE LA PAIRE À LA LISTE DES POKÉMONS POSSÉDÉS
+                            localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE
                             console.log(localStorage.getItem("pokedexCardsHave"));
-                            return {...card, matched:true, pokedexCardsHave};
-                            //return {...card, matched: true};
+                            return {...card, matched:true};
                         } else {
                             return card
                         }
