@@ -10,42 +10,42 @@ const pokedexCards = [
   {name: 'Abra', key: '063', src:'/img/pokedex/063.jpg'},
   {name: 'Machop', key: '066', src:'/img/pokedex/066.jpg'},*/
 
-  {name: 'Turtwig', key: '387', src:'/img/pokedex/387.jpg'},
-  {name: 'Grotle', key: '388', src:'/img/pokedex/388.jpg'},
-  {name: 'Torterra', key: '389', src:'/img/pokedex/389.jpg'},
-  {name: 'Chimchar', key: '390', src:'/img/pokedex/390.jpg'},
-  {name: 'Monferno', key: '391', src:'/img/pokedex/391.jpg'},
-  {name: 'Infernape', key: '392', src:'/img/pokedex/392.jpg'},
-  {name: 'Piplup', key: '393', src:'/img/pokedex/393.jpg'},
-  {name: 'Prinplup', key: '394', src:'/img/pokedex/394.jpg'},
-  {name: 'Empoleon', key: '395', src:'/img/pokedex/395.jpg'},
-  {name: 'Starly', key: '396', src:'/img/pokedex/396.jpg'},
-  {name: 'Staravia', key: '397', src:'/img/pokedex/397.jpg'},
-  {name: 'Staraptor', key: '398', src:'/img/pokedex/398.jpg'},
-  {name: 'Bidoof', key: '399', src:'/img/pokedex/399.jpg'},
-  {name: 'Bibarel', key: '400', src:'/img/pokedex/400.jpg'},
-  {name: 'Kricketot', key: '401', src:'/img/pokedex/401.jpg'},
-  {name: 'Kricketune', key: '402', src:'/img/pokedex/402.jpg'},
-  {name: 'Shinx', key: '403', src:'/img/pokedex/403.jpg'},
-  {name: 'Luxio', key: '404', src:'/img/pokedex/404.jpg'},
-  {name: 'Luxray', key: '405', src:'/img/pokedex/405.jpg'},
-  {name: 'Budew', key: '406', src:'/img/pokedex/406.jpg'},
-  {name: 'Roserade', key: '407', src:'/img/pokedex/407.jpg'},
-  {name: 'Cranidos', key: '408', src:'/img/pokedex/408.jpg'},
-  {name: 'Rampardos', key: '409', src:'/img/pokedex/409.jpg'},
-  {name: 'Shieldon', key: '410', src:'/img/pokedex/410.jpg'},
-  {name: 'Bastiodon', key: '411', src:'/img/pokedex/411.jpg'},
-  {name: 'Burmy', key: '412', src:'/img/pokedex/412.jpg'},
-  {name: 'Wormadam', key: '413', src:'/img/pokedex/413.jpg'},
-  {name: 'Mothim', key: '414', src:'/img/pokedex/414.jpg'},
-  {name: 'Combee', key: '415', src:'/img/pokedex/415.jpg'},
-  {name: 'Vespiquen', key: '416', src:'/img/pokedex/416.jpg'},
-  {name: 'Pachirisu', key: '417', src:'/img/pokedex/417.jpg'},
-  {name: 'Buizel', key: '418', src:'/img/pokedex/418.jpg'},
-  {name: 'Floatzel', key: '419', src:'/img/pokedex/419.jpg'},
-  {key: '420', name: 'Cherubi', src:'/img/pokedex/420.jpg'},
-  {key: '421', name: 'Cherrim', src:'/img/pokedex/421.jpg'},
-  {key: '422', name: 'Shellos', src:'/img/pokedex/422.jpg'},
+  {key: '387', name: 'Turtwig', src:'/img/pokedex/387.png'},
+  {key: '388', name: 'Grotle', src:'/img/pokedex/388.png'},
+  {key: '389', name: 'Torterra', src:'/img/pokedex/389.png'},
+  {key: '390', name: 'Chimchar', src:'/img/pokedex/390.png'},
+  {name: 'Monferno', key: '391', src:'/img/pokedex/391.png'},
+  {name: 'Infernape', key: '392', src:'/img/pokedex/392.png'},
+  {name: 'Piplup', key: '393', src:'/img/pokedex/393.png'},
+  {name: 'Prinplup', key: '394', src:'/img/pokedex/394.png'},
+  {name: 'Empoleon', key: '395', src:'/img/pokedex/395.png'},
+  {name: 'Starly', key: '396', src:'/img/pokedex/396.png'},
+  {name: 'Staravia', key: '397', src:'/img/pokedex/397.png'},
+  {name: 'Staraptor', key: '398', src:'/img/pokedex/398.png'},
+  {name: 'Bidoof', key: '399', src:'/img/pokedex/399.png'},
+  {name: 'Bibarel', key: '400', src:'/img/pokedex/400.png'},
+  {name: 'Kricketot', key: '401', src:'/img/pokedex/401.png'},
+  {name: 'Kricketune', key: '402', src:'/img/pokedex/402.png'},
+  {name: 'Shinx', key: '403', src:'/img/pokedex/403.png'},
+  {name: 'Luxio', key: '404', src:'/img/pokedex/404.png'},
+  {name: 'Luxray', key: '405', src:'/img/pokedex/405.png'},
+  {name: 'Budew', key: '406', src:'/img/pokedex/406.png'},
+  {name: 'Roserade', key: '407', src:'/img/pokedex/407.png'},
+  {name: 'Cranidos', key: '408', src:'/img/pokedex/408.png'},
+  {name: 'Rampardos', key: '409', src:'/img/pokedex/409.png'},
+  {name: 'Shieldon', key: '410', src:'/img/pokedex/410.png'},
+  {name: 'Bastiodon', key: '411', src:'/img/pokedex/411.png'},
+  {name: 'Burmy', key: '412', src:'/img/pokedex/412.png'},
+  {name: 'Wormadam', key: '413', src:'/img/pokedex/413.png'},
+  {name: 'Mothim', key: '414', src:'/img/pokedex/414.png'},
+  {name: 'Combee', key: '415', src:'/img/pokedex/415.png'},
+  {name: 'Vespiquen', key: '416', src:'/img/pokedex/416.png'},
+  {name: 'Pachirisu', key: '417', src:'/img/pokedex/417.png'},
+  {name: 'Buizel', key: '418', src:'/img/pokedex/418.png'},
+  {name: 'Floatzel', key: '419', src:'/img/pokedex/419.png'},
+  {key: '420', name: 'Cherubi', src:'/img/pokedex/420.png'},
+  {key: '421', name: 'Cherrim', src:'/img/pokedex/421.png'},
+  {key: '422', name: 'Shellos', src:'/img/pokedex/422.png'},
   {key: '423', name: 'Gastrodon', src:'/img/pokedex/423.jpg'},
   {key: '424', name: 'Ambipom', src:'/img/pokedex/424.jpg'},
   {key: '425', name: 'Drifloon', src:'/img/pokedex/425.jpg'},
@@ -66,7 +66,7 @@ const pokedexCards = [
   {key: '440', name: 'Happiny ', src:'/img/pokedex/440.jpg'},
   {key: '441', name: 'Chatot ', src:'/img/pokedex/441.jpg'},
   {key: '442', name: 'Spiritomb ', src:'/img/pokedex/442.jpg'},
-  {key: '443', name: 'Gible ', src:'/img/pokedex/443.jpg'},
+  {key: '443', name: 'Gible ', src:'/img/pokedex/443.png'},
   {key: '444', name: 'Gabite ', src:'/img/pokedex/444.jpg'},
   {key: '445', name: 'Garchomp ', src:'/img/pokedex/445.jpg'},
   {key: '446', name: 'Munchlax ', src:'/img/pokedex/446.jpg'},
@@ -115,7 +115,7 @@ const pokedexCards = [
   {key: '489', name: 'Phione ', src:'/img/pokedex/489.jpg'},
   {key: '490', name: 'Manaphy ', src:'/img/pokedex/490.jpg'},
   {key: '491', name: 'Darkrai ', src:'/img/pokedex/491.jpg'},
-  {key: '492', name: 'Shaymin ', src:'/img/pokedex/492.jpg'},
+  {key: '492', name: 'Shaymin ', src:'/img/pokedex/492.png'},
   {key: '493', name: 'Arceus ', src:'/img/pokedex/493.jpg'}
 ];
 
@@ -127,16 +127,18 @@ export function FindPokedexCard(pokedexid) {
 
 const PokedexList = props => {
 
-
-
+  const pokedexCardsHave = localStorage.getItem("pokedexCardsHave"); //VA CHERCHER LA LISTE DES POKÉMONS POSSÉDÉS
   const pokedexArray = pokedexCards.map((pokedexCard) => {
     return (
       <PokedexCard name={pokedexCard.name} key={pokedexCard.key} pokedexid={pokedexCard.key} src={pokedexCard.src} />
     );
   });
   return (
-    <div className="pokedex-grid">
-      {pokedexArray}
+    <div>
+      {/* <p>{pokedexCardsHave.length + "/" + pokedexArray.length}</p> */}
+      <div className="pokedex-grid">
+        {pokedexArray}
+      </div>
     </div>
   );
 };

@@ -5,7 +5,14 @@ import './style.css';
 export const PokedexCard = props => {
 
   const pokedexCardsHave = localStorage.getItem("pokedexCardsHave"); //VA CHERCHER LA LISTE DES POKÉMONS POSSÉDÉS
-  const isHave = pokedexCardsHave.includes(props.pokedexid); //VÉRIFIE QUE LA CARTE QUE L'ON REGARDE FAIT PARTIE DE CETTE LISTE
+  let isHave = false;
+  if (pokedexCardsHave !== null) {
+    isHave = pokedexCardsHave.includes(props.pokedexid); //VÉRIFIE QUE LA CARTE QUE L'ON REGARDE FAIT PARTIE DE CETTE LISTE
+  } else {
+    isHave = false;
+  }
+
+
 
   return (
     <div className={isHave ? "have-true card-pokedex" : "have-false card-pokedex"}>

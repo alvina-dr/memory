@@ -12,12 +12,12 @@ const cardImages = [
     { "src": "/img/063.jpg", matched: false, pokedexid:'063'},
     { "src": "/img/066.jpg", matched: false, pokedexid:'066'},*/
 
-    { "src": "/img/387.jpg", matched: false, pokedexid:'387'},
+    { "src": "/img/387.jpg", matched: false, pokedexid:'387'  },
     { "src": "/img/388.jpg", matched: false, pokedexid:'388'  },
     { "src": "/img/389.jpg", matched: false, pokedexid:'389'  },
     { "src": "/img/390.jpg", matched: false, pokedexid:'390'  },
     { "src": "/img/391.jpg", matched: false, pokedexid:'391'  },
-    { "src": "/img/392.jpg", matched: false, pokedexid:'392' },
+    { "src": "/img/392.jpg", matched: false, pokedexid:'392'  },
     { "src": "/img/393.jpg", matched: false, pokedexid:'393'  },
     { "src": "/img/394.jpg", matched: false, pokedexid:'394'  },
     { "src": "/img/395.jpg", matched: false, pokedexid:'395'  },
@@ -25,99 +25,99 @@ const cardImages = [
     { "src": "/img/397.jpg", matched: false, pokedexid:'397'  },
     { "src": "/img/398.jpg", matched: false, pokedexid:'398'  },
     { "src": "/img/399.jpg", matched: false, pokedexid:'399'  },
-    { "src": "/img/400.jpg", matched: false, pokedexid:'400' },
+    { "src": "/img/400.jpg", matched: false, pokedexid:'400'  },
     { "src": "/img/401.jpg", matched: false, pokedexid:'401'  },
     { "src": "/img/402.jpg", matched: false, pokedexid:'402'  },
     { "src": "/img/403.jpg", matched: false, pokedexid:'403'  },
     { "src": "/img/404.jpg", matched: false, pokedexid:'404'  },
     { "src": "/img/405.jpg", matched: false, pokedexid:'405'  },
     { "src": "/img/406.jpg", matched: false, pokedexid:'406'  }, 
-    { "src": "/img/407.jpg", matched: false, pokedexid:'407' },
+    { "src": "/img/407.jpg", matched: false, pokedexid:'407'  },
     { "src": "/img/408.jpg", matched: false, pokedexid:'408'  },
     { "src": "/img/409.jpg", matched: false, pokedexid:'409'  },
     { "src": "/img/410.jpg", matched: false, pokedexid:'410'  },
     { "src": "/img/411.jpg", matched: false, pokedexid:'411'  },
     { "src": "/img/412.jpg", matched: false, pokedexid:'412'  },
     { "src": "/img/413.jpg", matched: false, pokedexid:'413'  }, 
-    { "src": "/img/414.jpg", matched: false, pokedexid:'414' },
+    { "src": "/img/414.jpg", matched: false, pokedexid:'414'  },
     { "src": "/img/415.jpg", matched: false, pokedexid:'415'  },
     { "src": "/img/416.jpg", matched: false, pokedexid:'416'  },
     { "src": "/img/417.jpg", matched: false, pokedexid:'417'  },
     { "src": "/img/418.jpg", matched: false, pokedexid:'418'  },
     { "src": "/img/419.jpg", matched: false, pokedexid:'419'  },
     { "src": "/img/420.jpg", matched: false, pokedexid:'420'  }, 
-    { "src": "/img/421.jpg", matched: false, pokedexid:'421' },
+    { "src": "/img/421.jpg", matched: false, pokedexid:'421'  },
     { "src": "/img/422.jpg", matched: false, pokedexid:'422'  },
     { "src": "/img/423.jpg", matched: false, pokedexid:'423'  },
     { "src": "/img/424.jpg", matched: false, pokedexid:'424'  }, 
-    { "src": "/img/425.jpg", matched: false, pokedexid:'425' },
+    { "src": "/img/425.jpg", matched: false, pokedexid:'425'  },
     { "src": "/img/426.jpg", matched: false, pokedexid:'426'  },
     { "src": "/img/427.jpg", matched: false, pokedexid:'427'  },
     { "src": "/img/428.jpg", matched: false, pokedexid:'428'  },
     { "src": "/img/429.jpg", matched: false, pokedexid:'429'  },
     { "src": "/img/430.jpg", matched: false, pokedexid:'430'  },
     { "src": "/img/431.jpg", matched: false, pokedexid:'431'  }, 
-    { "src": "/img/432.jpg", matched: false, pokedexid:'432' },
+    { "src": "/img/432.jpg", matched: false, pokedexid:'432'  },
     { "src": "/img/433.jpg", matched: false, pokedexid:'433'  },
     { "src": "/img/434.jpg", matched: false, pokedexid:'434'  },
     { "src": "/img/435.jpg", matched: false, pokedexid:'435'  },
     { "src": "/img/436.jpg", matched: false, pokedexid:'436'  }, 
-    { "src": "/img/437.jpg", matched: false, pokedexid:'437' },
+    { "src": "/img/437.jpg", matched: false, pokedexid:'437'  },
     { "src": "/img/438.jpg", matched: false, pokedexid:'438'  },
     { "src": "/img/439.jpg", matched: false, pokedexid:'439'  },
     { "src": "/img/440.jpg", matched: false, pokedexid:'440'  },
     { "src": "/img/441.jpg", matched: false, pokedexid:'441'  },
     { "src": "/img/442.jpg", matched: false, pokedexid:'442'  },
     { "src": "/img/443.jpg", matched: false, pokedexid:'443'  }, 
-    { "src": "/img/444.jpg", matched: false, pokedexid:'444' },
+    { "src": "/img/444.jpg", matched: false, pokedexid:'444'  },
     { "src": "/img/445.jpg", matched: false, pokedexid:'445'  },
     { "src": "/img/446.jpg", matched: false, pokedexid:'446'  },
     { "src": "/img/447.jpg", matched: false, pokedexid:'447'  },
     { "src": "/img/448.jpg", matched: false, pokedexid:'448'  }, 
-    { "src": "/img/449.jpg", matched: false, pokedexid:'449' },
+    { "src": "/img/449.jpg", matched: false, pokedexid:'449'  },
     { "src": "/img/450.jpg", matched: false, pokedexid:'450'  },
     { "src": "/img/451.jpg", matched: false, pokedexid:'451'  },
     { "src": "/img/452.jpg", matched: false, pokedexid:'452'  },
     { "src": "/img/453.jpg", matched: false, pokedexid:'453'  },
     { "src": "/img/454.jpg", matched: false, pokedexid:'454'  },
     { "src": "/img/455.jpg", matched: false, pokedexid:'455'  }, 
-    { "src": "/img/456.jpg", matched: false, pokedexid:'456' },
+    { "src": "/img/456.jpg", matched: false, pokedexid:'456'  },
     { "src": "/img/457.jpg", matched: false, pokedexid:'457'  },
     { "src": "/img/458.jpg", matched: false, pokedexid:'458'  },
     { "src": "/img/459.jpg", matched: false, pokedexid:'459'  },
     { "src": "/img/460.jpg", matched: false, pokedexid:'460'  }, 
-    { "src": "/img/461.jpg", matched: false, pokedexid:'461' },
+    { "src": "/img/461.jpg", matched: false, pokedexid:'461'  },
     { "src": "/img/462.jpg", matched: false, pokedexid:'462'  },
     { "src": "/img/463.jpg", matched: false, pokedexid:'463'  },
     { "src": "/img/464.jpg", matched: false, pokedexid:'464'  },
     { "src": "/img/465.jpg", matched: false, pokedexid:'465'  },
     { "src": "/img/466.jpg", matched: false, pokedexid:'466'  },
     { "src": "/img/467.jpg", matched: false, pokedexid:'467'  }, 
-    { "src": "/img/468.jpg", matched: false, pokedexid:'468' },
+    { "src": "/img/468.jpg", matched: false, pokedexid:'468'  },
     { "src": "/img/469.jpg", matched: false, pokedexid:'469'  },
     { "src": "/img/470.jpg", matched: false, pokedexid:'470'  },
     { "src": "/img/471.jpg", matched: false, pokedexid:'471'  },
     { "src": "/img/472.jpg", matched: false, pokedexid:'472'  }, 
-    { "src": "/img/473.jpg", matched: false, pokedexid:'473' },
+    { "src": "/img/473.jpg", matched: false, pokedexid:'473'  },
     { "src": "/img/474.jpg", matched: false, pokedexid:'474'  },
     { "src": "/img/475.jpg", matched: false, pokedexid:'475'  },
     { "src": "/img/476.jpg", matched: false, pokedexid:'476'  },
     { "src": "/img/477.jpg", matched: false, pokedexid:'477'  },
     { "src": "/img/478.jpg", matched: false, pokedexid:'478'  },
     { "src": "/img/479.jpg", matched: false, pokedexid:'479'  }, 
-    { "src": "/img/480.jpg", matched: false, pokedexid:'480' },
+    { "src": "/img/480.jpg", matched: false, pokedexid:'480'  },
     { "src": "/img/481.jpg", matched: false, pokedexid:'481'  },
     { "src": "/img/482.jpg", matched: false, pokedexid:'482'  },
     { "src": "/img/483.jpg", matched: false, pokedexid:'483'  },
     { "src": "/img/484.jpg", matched: false, pokedexid:'484'  }, 
-    { "src": "/img/485.jpg", matched: false, pokedexid:'485' },
+    { "src": "/img/485.jpg", matched: false, pokedexid:'485'  },
     { "src": "/img/486.jpg", matched: false, pokedexid:'486'  },
     { "src": "/img/487.jpg", matched: false, pokedexid:'487'  },
     { "src": "/img/488.jpg", matched: false, pokedexid:'488'  },
     { "src": "/img/489.jpg", matched: false, pokedexid:'489'  },
     { "src": "/img/490.jpg", matched: false, pokedexid:'490'  },
     { "src": "/img/491.jpg", matched: false, pokedexid:'491'  }, 
-    { "src": "/img/492.jpg", matched: false, pokedexid:'492' },
+    { "src": "/img/492.jpg", matched: false, pokedexid:'492'  },
     { "src": "/img/493.jpg", matched: false, pokedexid:'493'  },
 ]
 
@@ -194,8 +194,21 @@ export default function Game() {
 
     //CHOIX DES CARTES PAR LE JOUEUR
     const handleChoice = (card) => {
-        choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+        if (choiceOne) {
+            // debugger
+            setChoiceTwo(card);
+            setDisabled(true);
+            console.log("coucou")
+        } else {
+            console.log('choiceOne',choiceOne)
+            setChoiceOne(card);
+        }
     }
+        
+        //choiceOne ? setChoiceTwo(card)//Ici nos deux cartes sont selectionnées donc on peut commencer la comparaison
+        //: setChoiceOne(card); 
+        //si un premier choix a déjà été fait alors on passe au deuxième choix 
+        //si un premier choix n'a pas été fait alors on attribue la carte que l'on vient de toucher au premier choix 
 
     //PAUSE OU DÉPAUSE LE JEU
     const pauseGame = () =>  {
@@ -206,15 +219,55 @@ export default function Game() {
             setDisabled(false); //le joueur peut sélectionner une carte
         }
     }
+
+    //À la place de regarder tout le temps si deux choix ont été effectués : on regarde quand on clique sur une carte si une autre carte a déjà été cliqué. Si c'est le cas, on vient donc de retourner la deuxième carten sinon il s'agit de la première carte
     
-    //COMPARE LES DEUX CARTES SÉLECTIONNÉS POUR VOIR SI ELLES MATCHENT
+
     useEffect(() => {
         if (choiceOne && choiceTwo) {
-            setDisabled(true)
-            if (choiceOne.src === choiceTwo.src) {
+            if (choiceOne.src === choiceTwo.src) { //QUAND ON TROUVE UNE PAIRE
                 setCards(prevCards => {
                     return prevCards.map(card => {
-                        if (card.src === choiceOne.src) { //Si nos deux cartes sont identiques
+                        if (card.src === choiceOne.src) { 
+                            //SCORE
+                            let localScore = score;
+                            localScore++;
+                            console.log("local score" + localScore)
+
+                            setScore(localScore) //On utilise encore la variable score pour l'affichage
+                            if (localScore >= highscore) { //On compare le score avec le highscore et s'il est supérieur : 
+                                setLocalHighscore(localScore); //On donne au highscore local la valeur du score
+                                localStorage.setItem("highscore", JSON.stringify(localScore));
+                                setHighscore(localStorage.getItem("highscore"));
+                            }
+                            console.log("je suis devant")
+                            if (!pokedexCardsHave.includes(card.pokedexid)) {
+                                console.log("je suis rentrée une première fois")
+                                setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(choiceOne.pokedexid)]);
+                                localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE    
+                                console.log(pokedexCardsHave)
+                            }
+                            return {...card, matched:true, score, localHighscore, highscore};
+                        } else {
+                            return card;
+                        }
+                    })
+                })
+                resetTurn()
+            } else {
+                setTimeout(() => resetTurn(), 1000)
+            }
+        }
+    }, [choiceOne, choiceTwo, score, highscore, localHighscore, pokedexCardsHave])
+    //COMPARE LES DEUX CARTES SÉLECTIONNÉS POUR VOIR SI ELLES MATCHENT
+    /*useEffect(() => {
+        if (choiceOne && choiceTwo) {
+            setDisabled(true)
+            if (choiceOne.src === choiceTwo.src) { //QUAND ON TROUVE UNE PAIRE
+                setCards(prevCards => {
+                    return prevCards.map(card => {
+                        if (card.src === choiceOne.src) { 
+                            //SCORE
                             let localScore = score;
                             localScore++;
                             setScore(localScore) //On utilise encore la variable score pour l'affichage
@@ -223,9 +276,21 @@ export default function Game() {
                                 localStorage.setItem("highscore", JSON.stringify(localScore));
                                 setHighscore(localStorage.getItem("highscore"));
                             }
-                            setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]); //AJOUTE LE POKÉMON DE LA PAIRE À LA LISTE DES POKÉMONS POSSÉDÉS
-                            localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE
-                            return {...card, matched:true, score, localHighscore, highscore};
+                            //POKEDEX
+                            //let localPokedexCardsHave = pokedexCardsHave;
+                            //console.log("local pokedex cards have avant : " + localPokedexCardsHave);
+                            //localPokedexCardsHave = prevState => [...prevState, FindPokedexCard(card.pokedexid)];
+                            //console.log("local pokedex cards have après : " + localPokedexCardsHave);
+                            //setPokedexCardsHave(localPokedexCardsHave);
+                            console.log("je suis devant")
+                            if (!pokedexCardsHave.includes(card.pokedexid)) {
+                                console.log("je suis rentrée une première fois")
+                                setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]);
+                                //setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]); //AJOUTE LE POKÉMON DE LA PAIRE À LA LISTE DES POKÉMONS POSSÉDÉS
+                                localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE    
+                                console.log(pokedexCardsHave)
+                            }
+        return {...card, matched:true, score, localHighscore, highscore};
                         } else {
                             return card
                         }
@@ -236,7 +301,7 @@ export default function Game() {
                 setTimeout(() => resetTurn(), 1000)
             }
         }
-    }, [choiceOne, choiceTwo, score, highscore, localHighscore, pokedexCardsHave])
+    }, [choiceOne, choiceTwo, score, highscore, localHighscore, pokedexCardsHave])*/
 
 
     //REMET LE TOUR À ZÉRO ET CACHE LES DEUX CARTES SI ELLES SONT MAUVAISES + PERMET DE REJOUER
