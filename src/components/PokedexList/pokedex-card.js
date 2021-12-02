@@ -10,7 +10,7 @@ export const PokedexCard = props => {
   return (
     <div className={isHave ? "have-true card-pokedex" : "have-false card-pokedex"}>
       <img className="card-image" src={props.src} alt="Pokemon card"/>
-      <img className="have-icon"/*{pokedexCardHave ? "have-icon" : "not-have-icon"}*/ src='/img/pokedex/have.png' alt="Have icon"/>
+      <img className={isHave ? "have-icon" : "not-have-icon"} src='/img/pokedex/have.png' alt="Have icon"/>
       <div className="div-text-pokedex">
         <p className="pokedex-text-name">{props.name}</p>
         <p className="pokedex-text-id">#{props.pokedexid}</p>

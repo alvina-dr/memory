@@ -31,70 +31,100 @@ const cardImages = [
     { "src": "/img/403.jpg", matched: false, pokedexid:'403'  },
     { "src": "/img/404.jpg", matched: false, pokedexid:'404'  },
     { "src": "/img/405.jpg", matched: false, pokedexid:'405'  },
-    { "src": "/img/406.jpg", matched: false, pokedexid:'406'  }
+    { "src": "/img/406.jpg", matched: false, pokedexid:'406'  }, 
+    { "src": "/img/407.jpg", matched: false, pokedexid:'407' },
+    { "src": "/img/408.jpg", matched: false, pokedexid:'408'  },
+    { "src": "/img/409.jpg", matched: false, pokedexid:'409'  },
+    { "src": "/img/410.jpg", matched: false, pokedexid:'410'  },
+    { "src": "/img/411.jpg", matched: false, pokedexid:'411'  },
+    { "src": "/img/412.jpg", matched: false, pokedexid:'412'  },
+    { "src": "/img/413.jpg", matched: false, pokedexid:'413'  }, 
+    { "src": "/img/414.jpg", matched: false, pokedexid:'414' },
+    { "src": "/img/415.jpg", matched: false, pokedexid:'415'  },
+    { "src": "/img/416.jpg", matched: false, pokedexid:'416'  },
+    { "src": "/img/417.jpg", matched: false, pokedexid:'417'  },
+    { "src": "/img/418.jpg", matched: false, pokedexid:'418'  },
+    { "src": "/img/419.jpg", matched: false, pokedexid:'419'  },
+    { "src": "/img/420.jpg", matched: false, pokedexid:'420'  }, 
+    { "src": "/img/421.jpg", matched: false, pokedexid:'421' },
+    { "src": "/img/422.jpg", matched: false, pokedexid:'422'  }
 ]
 
+export function random(array) { 
+    return array[Math.floor(Math.random()*array.length)];
+    //return Math.random() * (mx - mn) + mn; 
+} 
+
 export default function Game() {
+    //JEU DE MEMORY
     const [cards, setCards] = useState([]);
     const [turns, setTurns] = useState(0);
     const [choiceOne, setChoiceOne] = useState(null);
     const [choiceTwo, setChoiceTwo] = useState(null);
+    const shuffledCards = cardImages.sort(() => Math.random() - 0.5)     //1. Mélanger mon array de base (sans creer de doublons)
+    .slice(0, 20);    //2. Sélectionner les N premiers
+
+    //TEMPS DU JEU
     const [timeLeft, setTimeLeft] = React.useState(0);
-    const [score, setScore] = useState(0);
-    const [highscore, setHighscore] = useState(() => {
-        // getting stored value
-        const saved = localStorage.getItem("highscore");
-        const initialValue = JSON.parse(saved);
-        return initialValue || "0";
-      });
-    const [localHighscore, setLocalHighscore] = useState(0);
     const [gameState, setGameState] = useState(false);
     const [disabled, setDisabled] = useState(false);
-    const shuffledCards = [...cardImages, ...cardImages]
-    .sort(() => Math.random() - 0.5)
-    .map((card) => ({ ...card, id: Math.random() }))
+
+    //SCORES ET HIGHSCORES
+    const [score, setScore] = useState(0);
+    const [localHighscore, setLocalHighscore] = useState(0);
+    const [highscore, setHighscore] = useState(() => {
+        const saved = localStorage.getItem("highscore");
+        const initialValue = JSON.parse(saved);
+        return initialValue || score;
+      });
+
+    //AFFICHAGE DU BOUTON QUAND ON COMMENCE
     const [showStartButton, setShowStartButton] = React.useState(true)
-    //let [pokedexCardsHave, setPokedexCardsHave] = useState([]);
+
+    //POSSESSION DES CARTES
     let [pokedexCardsHave, setPokedexCardsHave] = useState(() => {
         const ls = localStorage.getItem("pokedexCardsHave");
         if (ls) return JSON.parse(ls);
         else return [];
       });
 
+    //FIN DÉCLARATION CONSTANTES ---------------------------------------------------------------------------------------------------------
 
     //LANCE LE JEU + REMET TIMER À ZÉRO + MÉLANGE LES CARTES
     const shuffleCards = () => {
         setChoiceOne(null) //met la première sélection de carte à zéro
         setChoiceTwo(null) //met la deuxième sélection de carte à zéro
         setDisabled(false); //le joueur peut sélectionner une carte
-        setCards(shuffledCards)
+        setCards(shuffledCards);
+        setCards(shuffledCards => [...shuffledCards, ...shuffledCards]    //3. Réaliser des doublons de chaque cartes sélectionnées
+            .sort(() => Math.random() - 0.5)     //4. Remélanger avec ces doublons
+            .map((card) => ({ ...card, id: Math.random() })))
         setTurns(0) //remet le nombre de paire retournées à zéro
         setScore(0) //remet le nombre de paires trouvé à zéro
         setTimeLeft(60) //indique le temps d'une partie
         setGameState(true) //indique que le jeu a commencé et que le timer peut se déclencher
     }
 
+    //POUR RECOMMENCER LE JEU
     const restart = () => {
-        //this.setTimeout(() => this.setTimeLeft(0)); 
         setGameState(false);
         setCards(prevCards => {
         return prevCards.map(card => {
             return {...card, matched: true}       
             })
-        })
+        }) //MONTRER TOUTES LES CARTES
         setTimeout(() => setCards(prevCards => {
             return prevCards.map(card => {
                 return {...card, matched: false};
                 })
-            }), 1000)
-        setTimeout(() => shuffleCards(), 1500)
+            }), 1000) //LES CACHER
+        setTimeout(() => shuffleCards(), 1500) //LES MÉLANGER
     }
 
-    //CHOIX DES CARTES
+    //CHOIX DES CARTES PAR LE JOUEUR
     const handleChoice = (card) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
     }
-
 
     //PAUSE OU DÉPAUSE LE JEU
     const pauseGame = () =>  {
@@ -113,12 +143,18 @@ export default function Game() {
             if (choiceOne.src === choiceTwo.src) {
                 setCards(prevCards => {
                     return prevCards.map(card => {
-                        if (card.src === choiceOne.src) {
-                            setScore(score + 1); //ajoute 1 au score
+                        if (card.src === choiceOne.src) { //Si nos deux cartes sont identiques
+                            let localScore = score;
+                            localScore++;
+                            setScore(localScore) //On utilise encore la variable score pour l'affichage
+                            if (localScore >= highscore) { //On compare le score avec le highscore et s'il est supérieur : 
+                                setLocalHighscore(localScore); //On donne au highscore local la valeur du score
+                                localStorage.setItem("highscore", JSON.stringify(localScore));
+                                setHighscore(localStorage.getItem("highscore"));
+                            }
                             setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]); //AJOUTE LE POKÉMON DE LA PAIRE À LA LISTE DES POKÉMONS POSSÉDÉS
                             localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE
-                            console.log(localStorage.getItem("pokedexCardsHave"));
-                            return {...card, matched:true};
+                            return {...card, matched:true, score, localHighscore, highscore};
                         } else {
                             return card
                         }
@@ -129,7 +165,7 @@ export default function Game() {
                 setTimeout(() => resetTurn(), 1000)
             }
         }
-    }, [choiceOne, choiceTwo, score, pokedexCardsHave])
+    }, [choiceOne, choiceTwo, score, highscore, localHighscore, pokedexCardsHave])
 
 
     //REMET LE TOUR À ZÉRO ET CACHE LES DEUX CARTES SI ELLES SONT MAUVAISES + PERMET DE REJOUER
@@ -149,18 +185,13 @@ export default function Game() {
             setTimeLeft(0)
             clearInterval(timeLeft);
             setDisabled(true);
-            if (score > highscore) {
-                setLocalHighscore(score);
-                localStorage.setItem("highscore", JSON.stringify(localHighscore));
-                setHighscore(localStorage.getItem("highscore"));
-            }
             setCards(prevCards => {
             return prevCards.map(card => {
                 return {...card, matched: true}       
                 })
             })
         }
-    }, [timeLeft, gameState, score, highscore, localHighscore]);
+    }, [timeLeft, gameState]);
 
 
 
@@ -181,7 +212,6 @@ export default function Game() {
             </div>
             <button onClick={ () => {shuffleCards(); setShowStartButton(false)}} className={showStartButton ? "" : "started"}>Play</button>
 
-            <div ></div>
             <div className="card-grid">
                 {cards.map(card => (
                 <SingleCard
