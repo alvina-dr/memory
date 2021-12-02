@@ -232,17 +232,13 @@ export default function Game() {
                             //SCORE
                             let localScore = score;
                             localScore++;
-                            console.log("local score" + localScore)
-
                             setScore(localScore) //On utilise encore la variable score pour l'affichage
                             if (localScore >= highscore) { //On compare le score avec le highscore et s'il est supérieur : 
                                 setLocalHighscore(localScore); //On donne au highscore local la valeur du score
                                 localStorage.setItem("highscore", JSON.stringify(localScore));
                                 setHighscore(localStorage.getItem("highscore"));
                             }
-                            console.log("je suis devant")
                             if (!pokedexCardsHave.includes(card.pokedexid)) {
-                                console.log("je suis rentrée une première fois")
                                 setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(choiceOne.pokedexid)]);
                                 localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE    
                                 console.log(pokedexCardsHave)
