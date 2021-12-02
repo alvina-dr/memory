@@ -127,7 +127,7 @@ export function FindPokedexCard(pokedexid) {
 
 const PokedexList = props => {
 
-  const pokedexCardsHave = localStorage.getItem("pokedexCardsHave"); //VA CHERCHER LA LISTE DES POKÉMONS POSSÉDÉS
+  //const pokedexCardsHave = localStorage.getItem("pokedexCardsHave"); //VA CHERCHER LA LISTE DES POKÉMONS POSSÉDÉS
   const pokedexArray = pokedexCards.map((pokedexCard) => {
     return (
       <PokedexCard name={pokedexCard.name} key={pokedexCard.key} pokedexid={pokedexCard.key} src={pokedexCard.src} />
