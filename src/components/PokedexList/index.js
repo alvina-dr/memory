@@ -138,7 +138,7 @@ const PokedexList = props => {
   });
   return (
     <div>
-      <p>{(pokedexCardsHave.length) + "/" + pokedexArray.length}</p>
+      <p>{JSON.parse(pokedexCardsHave).length + "/" + pokedexArray.length}</p>
       <div className="pokedex-grid">
         {pokedexArray}
       </div>
