@@ -10,7 +10,7 @@ function Header() {
             <ul>
                 <Link to="/">Home</Link>
                 <Link to="/memory">Memory</Link>
-                <Link to="/highscore">Highscore</Link>
+                {/* <Link to="/highscore">Highscore</Link> */}
                 <Link to="/pokedex">Pokedex</Link>
             </ul>
         </nav>
