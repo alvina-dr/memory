@@ -128,10 +128,11 @@ export function FindPokedexCard(pokedexid) {
 const PokedexList = props => {
 
   const pokedexCardsHave = JSON.parse(localStorage.getItem("pokedexCardsHave"))
+  var pokedexCardsHaveLength;
   if (pokedexCardsHave === null) {
-    var pokedexCardsHaveLength = 0; //VÉRIFIE QUE LA CARTE QUE L'ON REGARDE FAIT PARTIE DE CETTE LISTE
+    pokedexCardsHaveLength = 0; //VÉRIFIE QUE LA CARTE QUE L'ON REGARDE FAIT PARTIE DE CETTE LISTE
   } else {
-    var pokedexCardsHaveLength = pokedexCardsHave.length
+    pokedexCardsHaveLength = pokedexCardsHave.length
   }
   const pokedexArray = pokedexCards.map((pokedexCard) => {
     return (
