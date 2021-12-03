@@ -127,7 +127,10 @@ export function FindPokedexCard(pokedexid) {
 
 const PokedexList = props => {
 
-  //const pokedexCardsHave = localStorage.getItem("pokedexCardsHave"); //VA CHERCHER LA LISTE DES POKÉMONS POSSÉDÉS
+  const pokedexCardsHave = localStorage.getItem("pokedexCardsHave"); //VA CHERCHER LA LISTE DES POKÉMONS POSSÉDÉS
+  if (pokedexCardsHave === null) {
+    //pokedexCardsHave = 0; //VÉRIFIE QUE LA CARTE QUE L'ON REGARDE FAIT PARTIE DE CETTE LISTE
+  }
   const pokedexArray = pokedexCards.map((pokedexCard) => {
     return (
       <PokedexCard name={pokedexCard.name} key={pokedexCard.key} pokedexid={pokedexCard.key} src={pokedexCard.src} />
@@ -135,7 +138,7 @@ const PokedexList = props => {
   });
   return (
     <div>
-      {/* <p>{pokedexCardsHave.length + "/" + pokedexArray.length}</p> */}
+      <p>{(pokedexCardsHave.length) + "/" + pokedexArray.length}</p>
       <div className="pokedex-grid">
         {pokedexArray}
       </div>

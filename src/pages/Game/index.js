@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SingleCard from '../../components/SingleCard';
 import * as React from 'react';
 import Header from '../../components/Header';
@@ -192,23 +192,52 @@ export default function Game() {
         setTimeout(() => shuffleCards(), 1500) //LES MÉLANGER
     }
 
-    //CHOIX DES CARTES PAR LE JOUEUR
+    //CHOIX DES CARTES PAR LE JOUEUR ET VÉRIFICATION DES PAIRES
     const handleChoice = (card) => {
         if (choiceOne) {
-            // debugger
-            setChoiceTwo(card);
+            let localChoiceTwo = card;
+            setChoiceTwo(localChoiceTwo);
             setDisabled(true);
-            console.log("coucou")
+            if (choiceOne && localChoiceTwo) {
+                if (choiceOne.src === localChoiceTwo.src) { //QUAND ON TROUVE UNE PAIRE
+                    setCards(prevCards => {
+                        return prevCards.map(card => {
+                            if (card.src === choiceOne.src) { 
+                                //SCORE
+                                let localScore = score;
+                                localScore++;
+                                setScore(localScore) //On utilise encore la variable score pour l'affichage
+                                if (localScore >= highscore) { //On compare le score avec le highscore et s'il est supérieur : 
+                                    setLocalHighscore(localScore); //On donne au highscore local la valeur du score
+                                    localStorage.setItem("highscore", JSON.stringify(localScore));
+                                    setHighscore(localStorage.getItem("highscore"));
+                                }
+                                if (localStorage.getItem("pokedexCardsHave") !== null) {    
+                                    if (!localStorage.getItem("pokedexCardsHave").includes(FindPokedexCard(choiceOne.pokedexid).key)) {
+                                        let localPokedexCardsHave = [...pokedexCardsHave, FindPokedexCard(choiceOne.pokedexid)];
+                                        setPokedexCardsHave(localPokedexCardsHave);
+                                        localStorage.setItem("pokedexCardsHave", JSON.stringify(localPokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE    
+                                    }
+                                } else { //Pour la première carte que l'on obtient pas besoin de vérifier si on l'a déjà 
+                                    let localPokedexCardsHave = [...pokedexCardsHave, FindPokedexCard(choiceOne.pokedexid)];
+                                    setPokedexCardsHave(localPokedexCardsHave);
+                                    localStorage.setItem("pokedexCardsHave", JSON.stringify(localPokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE    
+                                }
+                                return {...card, matched:true, score, localHighscore, highscore, pokedexCardsHave};
+                            } else {
+                                return card;
+                            }
+                        })
+                    })
+                    resetTurn()
+                } else {
+                    setTimeout(() => resetTurn(), 1000)
+                }
+            }
         } else {
-            console.log('choiceOne',choiceOne)
             setChoiceOne(card);
         }
     }
-        
-        //choiceOne ? setChoiceTwo(card)//Ici nos deux cartes sont selectionnées donc on peut commencer la comparaison
-        //: setChoiceOne(card); 
-        //si un premier choix a déjà été fait alors on passe au deuxième choix 
-        //si un premier choix n'a pas été fait alors on attribue la carte que l'on vient de toucher au premier choix 
 
     //PAUSE OU DÉPAUSE LE JEU
     const pauseGame = () =>  {
@@ -219,86 +248,6 @@ export default function Game() {
             setDisabled(false); //le joueur peut sélectionner une carte
         }
     }
-
-    //À la place de regarder tout le temps si deux choix ont été effectués : on regarde quand on clique sur une carte si une autre carte a déjà été cliqué. Si c'est le cas, on vient donc de retourner la deuxième carten sinon il s'agit de la première carte
-    
-
-    useEffect(() => {
-        if (choiceOne && choiceTwo) {
-            if (choiceOne.src === choiceTwo.src) { //QUAND ON TROUVE UNE PAIRE
-                setCards(prevCards => {
-                    return prevCards.map(card => {
-                        if (card.src === choiceOne.src) { 
-                            //SCORE
-                            let localScore = score;
-                            localScore++;
-                            setScore(localScore) //On utilise encore la variable score pour l'affichage
-                            if (localScore >= highscore) { //On compare le score avec le highscore et s'il est supérieur : 
-                                setLocalHighscore(localScore); //On donne au highscore local la valeur du score
-                                localStorage.setItem("highscore", JSON.stringify(localScore));
-                                setHighscore(localStorage.getItem("highscore"));
-                            }
-                            if (!pokedexCardsHave.includes(card.pokedexid)) {
-                                setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(choiceOne.pokedexid)]);
-                                localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE    
-                                console.log(pokedexCardsHave)
-                            }
-                            return {...card, matched:true, score, localHighscore, highscore};
-                        } else {
-                            return card;
-                        }
-                    })
-                })
-                resetTurn()
-            } else {
-                setTimeout(() => resetTurn(), 1000)
-            }
-        }
-    }, [choiceOne, choiceTwo, score, highscore, localHighscore, pokedexCardsHave])
-    //COMPARE LES DEUX CARTES SÉLECTIONNÉS POUR VOIR SI ELLES MATCHENT
-    /*useEffect(() => {
-        if (choiceOne && choiceTwo) {
-            setDisabled(true)
-            if (choiceOne.src === choiceTwo.src) { //QUAND ON TROUVE UNE PAIRE
-                setCards(prevCards => {
-                    return prevCards.map(card => {
-                        if (card.src === choiceOne.src) { 
-                            //SCORE
-                            let localScore = score;
-                            localScore++;
-                            setScore(localScore) //On utilise encore la variable score pour l'affichage
-                            if (localScore >= highscore) { //On compare le score avec le highscore et s'il est supérieur : 
-                                setLocalHighscore(localScore); //On donne au highscore local la valeur du score
-                                localStorage.setItem("highscore", JSON.stringify(localScore));
-                                setHighscore(localStorage.getItem("highscore"));
-                            }
-                            //POKEDEX
-                            //let localPokedexCardsHave = pokedexCardsHave;
-                            //console.log("local pokedex cards have avant : " + localPokedexCardsHave);
-                            //localPokedexCardsHave = prevState => [...prevState, FindPokedexCard(card.pokedexid)];
-                            //console.log("local pokedex cards have après : " + localPokedexCardsHave);
-                            //setPokedexCardsHave(localPokedexCardsHave);
-                            console.log("je suis devant")
-                            if (!pokedexCardsHave.includes(card.pokedexid)) {
-                                console.log("je suis rentrée une première fois")
-                                setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]);
-                                //setPokedexCardsHave(prevState => [...prevState, FindPokedexCard(card.pokedexid)]); //AJOUTE LE POKÉMON DE LA PAIRE À LA LISTE DES POKÉMONS POSSÉDÉS
-                                localStorage.setItem("pokedexCardsHave", JSON.stringify(pokedexCardsHave)); //SAUVEGARDE LA LISTE DES POKÉMONS POSSÉDÉS DANS LE LOCAL STORAGE    
-                                console.log(pokedexCardsHave)
-                            }
-        return {...card, matched:true, score, localHighscore, highscore};
-                        } else {
-                            return card
-                        }
-                    })
-                })
-                resetTurn()
-            } else {
-                setTimeout(() => resetTurn(), 1000)
-            }
-        }
-    }, [choiceOne, choiceTwo, score, highscore, localHighscore, pokedexCardsHave])*/
-
 
     //REMET LE TOUR À ZÉRO ET CACHE LES DEUX CARTES SI ELLES SONT MAUVAISES + PERMET DE REJOUER
     const resetTurn = () => {
