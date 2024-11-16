@@ -3,3 +3,5 @@
 
 # React MMI Course
 -> Forked from : https://github.com/emmanuelgratuze/mmi-react-course-p2021-project-base
+
+To get more details about the project have a look at my portfolio : https://alvina-dr.com/html/projects/video-games/pokemon-memory.html
